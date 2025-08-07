@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planeje - Login</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-left">
+            <div class="logo">
+                <h1>Planeje</h1>
+            </div>
+            <h2>Bem-vindo de volta!</h2>
+            <p>Organize suas viagens de forma simples e eficiente. Tenha tudo o que você precisa em um só lugar.</p>
+            <div class="features-list">
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i> Documentos organizados
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i> Roteiros personalizados
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i> Informações de saúde
+                </div>
+            </div>
+        </div>
+        
+        <div class="login-right">
+            <div class="login-form">
+                <h2>Login</h2>
+                
+                <form action="index.html" method="GET">
+                    <div class="form-group">
+                        <label for="email">CPF</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu CPF" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                    </div>
+                    
+                    <div class="remember-forgot">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Lembrar-me</label>
+                        </div>
+                        <div class="forgot-password">
+                            <a href="#">Esqueceu a senha?</a>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="login-btn">Entrar</button>
+                </form>
+                
+                <div class="social-login">
+                    <p>Ou entre com</p>
+                    <div class="social-icons">
+                        <div class="social-icon facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="social-icon google">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <div class="social-icon twitter">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="signup-link">
+                    Não tem uma conta? <a href="#">Cadastre-se</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
