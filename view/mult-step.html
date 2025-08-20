@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário 2 Páginas</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .step {
+        display: none;
+    }
+
+    .step.active {
+        display: block;
+    }
+
+    .progress {
+        text-align: center;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    button {
+        padding: 8px 15px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<h2>Formulário em 2 Etapas</h2>
+
+<!-- Indicador de Progresso -->
+<div class="progress" id="progress">1/2</div>
+
+<form id="multiStepForm">
+    <!-- Etapa 1 -->
+    <div class="step active" id="step1">
+        <label>Nome:</label><br>
+        <input type="text" name="nome" required><br><br>
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+        <button type="button" onclick="nextStep()">Próximo</button>
+    </div>
+
+    <!-- Etapa 2 -->
+    <div class="step" id="step2">
+        <label>Telefone:</label><br>
+        <input type="tel" name="telefone" required><br><br>
+        <label>Cidade:</label><br>
+        <input type="text" name="cidade" required><br><br>
+        <button type="button" onclick="prevStep()">Voltar</button>
+        <button type="submit">Enviar</button>
+    </div>
+</form>
+
+<script>
+    let currentStep = 1;
+
+    function updateProgress() {
+        document.getElementById("progress").textContent = currentStep + "/2";
+    }
+
+    function nextStep() {
+        document.getElementById("step" + currentStep).classList.remove("active");
+        currentStep++;
+        document.getElementById("step" + currentStep).classList.add("active");
+        updateProgress();
+    }
+
+    function prevStep() {
+        document.getElementById("step" + currentStep).classList.remove("active");
+        currentStep--;
+        document.getElementById("step" + currentStep).classList.add("active");
+        updateProgress();
+    }
+
+    document.getElementById("multiStepForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        alert("Formulário enviado com sucesso!");
+    });
+</script>
+
+</body>
+</html>
