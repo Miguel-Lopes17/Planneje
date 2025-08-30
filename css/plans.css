@@ -41,18 +41,17 @@ a {
 }
 
 /* Header */
-.main-header {
-    /* background-color: var(--white);
+/* .main-header {
+    background-color: var(--white);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000; */
-}
+    z-index: 1000;
+} */
 
 .main-header .container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
 }
@@ -61,6 +60,8 @@ a {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    margin-left: 20%;
+    
 }
 
 .logo h1 {
