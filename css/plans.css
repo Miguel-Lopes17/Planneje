@@ -59,9 +59,7 @@ a {
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-left: 20%;
-    
+    margin-right: 40%;
 }
 
 .logo h1 {
@@ -72,22 +70,70 @@ a {
 .logo-icon {
     font-size: 1.8rem;
 }
+nav {
+    position: relative;
+    width: 40%;
+    padding: 0;
+    overflow: hidden;
+}
 
-.main-nav ul {
+.ul-list {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    position: relative;
+    
 }
-
-.main-nav a {
+        
+.ul-list a {
+    display: inline-block;
+    padding: 10px 0;
+    width: 30%;
+    text-align: center;
+    color: #555;
     text-decoration: none;
-    color: var(--dark-text);
-    font-weight: 600;
-    transition: color 0.3s;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+        
+.ul-list a:hover {
+    color: #6A0DAD;
+}
+        
+.animation {
+    position: absolute;
+    height: 3px;
+    bottom: 0;
+    z-index: 0;
+    background-color: #6A0DAD;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    width: 27%;
+    margin-left: 1%;
 }
 
-.main-nav a:hover {
-    color: var(--primary-color);
+.ul-list a:nth-child(1):hover ~ .animation {
+    left:0;
+    background-color: #6A0DAD;
+}
+        
+.ul-list a:nth-child(2):hover ~ .animation {
+    left: 33.33%;
+    background-color: #9b59b6;
+}
+        
+.ul-list a:nth-child(3):hover ~ .animation {
+    left: 66.66%;
+    background-color: #8e44ad;
+}
+        
+        /* Classe para animação inicial */
+.start-home {
+    left: 0;
 }
 
 .btn-login, .btn-signup {
@@ -98,6 +144,7 @@ a {
     cursor: pointer;
     transition: all 0.3s;
 }
+
 
 .btn-login {
     background-color: transparent;
