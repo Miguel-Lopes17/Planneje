@@ -9,10 +9,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
 </head>
 
 <body>
@@ -23,8 +24,8 @@
             </div>
             <nav class="main-nav">
                 <ul class="main-sing">
-                    <li><a class="sing-in" href="#">Entrar</a></li>
-                     <li><a class="sing-up" href="#">Criar conta</a></li>
+                    <li><a class="sing-in" href="./view/login.html">Entrar</a></li>
+                    <li><a class="sing-up" href="./view/login.html">Criar conta</a></li>
                 </ul>
             </nav>
         </div>
@@ -36,33 +37,35 @@
             <div class="hero-content">
                 <h2>Organize sua viagem dos sonhos em um só lugar</h2>
                 <p>Tudo o que você precisa para planejar a viagem perfeita</p>
-                <button class="btn-primary"  data-aos="fade-up" data-aos-duration="1000">Comece a Planejar <span class="material-symbols-outlined">
-arrow_forward
-</span> </button>
+                <button class="btn-primary">Comece a Planejar <span class="material-symbols-outlined">arrow_forward</span> </button>
             </div>
         </div>
+        <a href="#scroll-down" class="down">
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
     </section>
 
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">Como o Planeje ajuda você</h2>
-            <p class="section-paragraph">Ferramentas inteligentes para organizar cada aspecto da sua viagem</p>
-            <div class="features-grid">
-                <div class="feature-card">
+    <section class="features" id="scroll-down">
+        <div class="container" >
+            <h2 class="section-title" data-aos="fade-down" data-aos-duration="1000">Como o Planeje ajuda você</h2>
+            <p class="section-paragraph" data-aos="fade-down" data-aos-duration="1000">Ferramentas inteligentes para
+                organizar cada aspecto da sua viagem</p>
+            <div class="features-grid" >
+                <div class="feature-card"  data-aos="fade-right" data-aos-duration="1500">
                     <div class="feature-icon">
                         <i class="fas fa-passport"></i>
                     </div>
                     <h3>Documentos</h3>
                     <p>Centralize todos os documentos necessários para sua viagem com alertas de validade.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
+                <div class="feature-card"  data-aos="fade-up" data-aos-duration="1500">
+                    <div class="feature-icon" >
                         <i class="fas fa-map-marked-alt"></i>
                     </div>
                     <h3>Roteiros</h3>
                     <p>Planeje seu itinerário diário com pontos de interesse e horários.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card"  data-aos="fade-left" data-aos-duration="1500">
                     <div class="feature-icon">
                         <i class="fas fa-heartbeat"></i>
                     </div>
@@ -79,7 +82,7 @@ arrow_forward
         <button><a href="#">Criar Conta</a></button>
     </section>
 
-    
+
 
     <footer class="main-footer">
         <div class="container">

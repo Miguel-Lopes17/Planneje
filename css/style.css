@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
 }
 
 :root {
@@ -22,6 +23,7 @@ body {
     color: var(--dark-text);
     line-height: 1.6;
     background-color: var(--white);
+  
 }
 
 ul {
@@ -64,7 +66,7 @@ h1, h2, h3, h4 {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-left: 50%;
+    margin-left: 48%;
     /* border: 1px solid; */
 }
 
@@ -132,7 +134,7 @@ h1, h2, h3, h4 {
 
 /* Hero Section */
 .hero {
-    height: 500px;
+    height: 880px;
     background: url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
     position: relative;
     margin-top: 70px; /* Para compensar o header fixo */
@@ -153,11 +155,11 @@ h1, h2, h3, h4 {
     position: relative;
     z-index: 1;
     color: var(--white);
-    max-width: 600px;
+    max-width: 700px;
 }
 
 .hero-content h2 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
 }
 
@@ -185,10 +187,29 @@ h1, h2, h3, h4 {
     background-color: #e6c300;
 }
 
+
+.down {
+    position: absolute;
+    text-align: center;
+    top: 80%;
+    left: 50%;
+    background-color: #6A0DAD;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    font-size: 30px;
+    border-radius: 100%;
+    box-shadow: 2px 2px 4px 2px #ffffff80;
+}
+
+
 /* Features Section */
 .features {
+    display: flex;
+    align-items: center;
     padding: 4rem 0;
     background-color: var(--light-gray);
+    min-height: 100vh;
 }
 
 .section-title {

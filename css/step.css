@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --blue: #185ADB;
+    --green: #01937C;
+    --org: #ff7600;
+    --red: #DA0037;
+}
+
+body {
+    min-height: 100vh;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 400px;
+    padding: 18px;
+    background: #fff;
+    border-radius: 6px;
+}
+
+.title {
+    font-weight:600;
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.indicador {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.indicador .line {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    background: #ddd;
+    width: 100%;
+    left: 0;
+    z-index: 10;
+}
+
+.indicador .line span {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 0;
+    background-color: var(--green);
+}
+
+.indicador p {
+    position: relative;
+    z-index: 20;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ddd;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-radius: 50%;
+    transition: .3s;
+}
+
+.indicador p.active {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.tab {
+    display: none;
+}
+
+.tab .show {
+    display: block;
+}
+
+.tab p {
+    margin-bottom: 18px;
+}
+
+form .tab .form {
+    margin-bottom: 18px;
+    width: 100%;
+}
+
+.tab .form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+form .btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+form .btn button {
+    padding: 10px 30px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-left: 18px;
+}
+
+form .btn button.prev {
+    background: #eee;
+}
+
+form .btn button.next {
+    background: var(--green);
+color: #fff;}
