@@ -1,95 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
-            rel="stylesheet">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-        <link rel="stylesheet" href="../css/file.css">
-        <title>Planneje - Meus Planos</title>
-    </head>
-    <body>
 
-        <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../css/file.css">
+    <title>Planneje - Meus Planos</title>
+</head>
 
-        <!-- MENU LATERAL (já fechado por padrão com "collapsed") -->
-        <aside class="sidebar collapsed">
-            <div class="sidebar-header">
-                <h3>Menu</h3>
-                <button class="close-btn"><i class="fas fa-times"></i></button>
-            </div>
+<body>
 
-            <ul class="sidebar-links">
-                <li><a href="#">Configuração</a></li>
-                <li><a href="#">Ajuda</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Planos arquivados</a></li>
-                <li><a href="#">Compartilhar</a></li>
-                <li><a href="#">Autenticador</a></li>
-                <li><a href="#">Documentos</a></li>
-            </ul>
+    <button class="menu-toggle"><i class="fas fa-bars"></i></button>
 
-            <div class="sidebar-footer">
-                <div class="user-info">
-                    <div class="avatar"></div>
-                    <div>
-                        <p class="email">luiz.exemplo@gmail.com</p>
-                        <p class="cpf">477.336.998-38</p>
-                    </div>
-                </div>
-                <button class="logout-btn">Sair</button>
-            </div>
-        </aside>
-        <header class="main-header">
-            <div class="container">
+    <!-- MENU LATERAL (já fechado por padrão com "collapsed") -->
+    <aside class="sidebar collapsed">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button class="close-btn"><i class="fas fa-times"></i></button>
+        </div>
 
-                <nav>
-                    <ul class="ul-list">
-                        <a href="#">Meus Planos</a>
-                        <a href="#">Documentos</a>
-                        <a href="#">Saúde</a>
-                    </ul>
+        <ul class="sidebar-links">
+            <li><a href="#">Configuração</a></li>
+            <li><a href="#">Ajuda</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Planos arquivados</a></li>
+            <li><a href="#">Compartilhar</a></li>
+            <li><a href="#">Autenticador</a></li>
+            <li><a href="#">Documentos</a></li>
+        </ul>
 
-                    <div class="animation start-home"></div>
-                </nav>
-
-                <div class="logo">
-                    <a href="/index.html"><h1>Planneje</h1></a>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="avatar"></div>
+                <div>
+                    <p class="email">luiz.exemplo@gmail.com</p>
                 </div>
             </div>
+            <button class="logout-btn">Sair</button>
+        </div>
+    </aside>
+    <header class="main-header">
+        <div class="container">
 
-        </header>
+            <nav>
+                <ul class="ul-list">
+                    <a href="#">Meus Planos</a>
+                    <a href="#">Documentos</a>
+                    <a href="#">Saúde</a>
+                </ul>
 
-        <main class="main">
-            <div class="container-user">
-              <div class="tabs-container">
-    <div class="tab active" data-id="1">
-        <span class="tab-title">Soca</span>
-        <button class="close-tab">&times;</button>
-    </div>
-    <div class="tab" data-id="2">
-        <span class="tab-title">Zando</span>
-        <button class="close-tab">&times;</button>
-    </div>
-    <button class="add-tab">+</button>
-</div>
+                <div class="animation start-home"></div>
+            </nav>
 
-<div class="tabs-content">
-    <div class="tab-content active" data-id="1">
-        <p>Conteúdo de Soca</p>
-    </div>
-    <div class="tab-content" data-id="2">
-        <p>Conteúdo de Zando</p>
-    </div>
-</div>
-
+            <div class="logo">
+                <a href="/index.html">
+                    <h1>Planneje</h1>
+                </a>
             </div>
-        </main>
+        </div>
 
-        <script src="../js/inicio.js"></script>
-    </body>
+    </header>
+
+    <main class="main">
+        <div class="container-user">
+            <div class="tabs-container">
+                <div class="tab active" data-id="1">
+                    <span class="tab-title">Soca</span>
+                    <button class="close-tab">&times;</button>
+                </div>
+                <div class="tab" data-id="2">
+                    <span class="tab-title">Zando</span>
+                    <button class="close-tab">&times;</button>
+                </div>
+                <button class="add-tab">+</button>
+            </div>
+
+            <div class="tabs-content">
+                <div class="tab-content active" data-id="1">
+                    <div class="conteudo"></div>
+                </div>
+                <div class="tab-content" data-id="2">
+                    <p>Conteúdo de Zando</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="../js/inicio.js"></script>
+</body>
+
 </html>
