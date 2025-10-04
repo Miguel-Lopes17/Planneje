@@ -23,7 +23,7 @@
     width: 260px;
     height: 100vh;
     background: #fff;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -125,24 +125,23 @@
 }
 
 .menu-toggle {
-    position: absolute;
+    position: absolute ;
     top: 15px;
     left: 15px;
-    background: var(--roxo);
-    color: #fff;
-    border: none;
+    color: var(--roxo);
     font-size: 1.3rem;
     cursor: pointer;
     padding: 10px 12px;
-    border-radius: 5px;
     z-index: 2100;
-    /* maior que o sidebar */
+    background: none;
+    border: none;
 }
 
 
-.sidebar:not(.collapsed)~.menu-toggle {
+.sidebar:not(.collapsed) ~ .menu-toggle {
     display: none;
 }
+
 
 
 body {
@@ -170,14 +169,14 @@ a {
 }
 
 .container {
-    width: 90%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.main-header .container {
+.main-header  {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 1rem 0;
 }
 
@@ -196,71 +195,6 @@ a {
     font-size: 1.8rem;
 }
 
-nav {
-    position: relative;
-    width: 40%;
-    padding: 0;
-    overflow: hidden;
-}
-
-.ul-list {
-    display: flex;
-    list-style: none;
-    position: relative;
-    gap: .5em;
-}
-
-.ul-list a {
-    display: inline-block;
-    padding: 10px 0;
-    width: 30%;
-    text-align: center;
-    color: #555;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    position: relative;
-    z-index: 1;
-    transition: color 0.3s ease;
-}
-
-.ul-list a:hover {
-    color: var(--roxo);
-}
-
-.animation {
-    position: absolute;
-    height: 3px;
-    bottom: 0;
-    z-index: 0;
-    background-color: var(--roxo);
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    width: 27%;
-    margin-left: 1%;
-}
-
-.ul-list a:nth-child(1):hover~.animation {
-    left: 0;
-    background-color: var(--roxo);
-}
-
-.ul-list a:nth-child(2):hover~.animation {
-    left: 33.33%;
-    background-color: #9b59b6;
-}
-
-.ul-list a:nth-child(3):hover~.animation {
-    left: 66.66%;
-    background-color: #8e44ad;
-}
-
-.start-home {
-    left: 0;
-}
-
 .container-user {
     display: flex;
     background: var(--roxo);
@@ -270,12 +204,10 @@ nav {
 }
 
 
-
-
 /*tabs*/
 .tabs-container {
     position: absolute;
-    top: 14%;
+    top: 14.2%;
     display: flex;
     align-items: center;
     padding: 10px;
