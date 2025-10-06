@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planeje - Cadastrar</title>
+    <title>Planeje - Login</title>
     <link rel="stylesheet" href="../css/login.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -70,55 +70,28 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="login-right">
             <div class="login-form">
 
                 <div class="container">
-                    <h1 class="title">Cadastrar-se</h1>
-                    <div class="indicador">
-                        <span class="line"><span></span></span>
-                        <p class="active">1</p>
-                        <p>2</p>
-                        <p>3</p>
-                    </div>
+                    <h1 class="title">Login</h1>
 
-                <form action="../backend/includes/cadastrar.php" method="POST" >
+                <form action="../backend/includes/login.php" method="POST" >
                     <div class="tab show">
                         <div class="form">
-                            <input type="text" placeholder="Nome" required>
+                            <input type="email" name="email" placeholder="Email">
                         </div>
                         <div class="form">
-                            <input type="text" placeholder="Sobrenome">
+                            <input type="password" name="senha" placeholder="Senha">
                         </div>
                         <div class="form">
-                            <input type="text" placeholder="Telefone (00) 00000-0000">
-                        </div>
-                        
-                    </div>
-            
-                    <div class="tab">
-                        <div class="form">
-                            <input type="email" placeholder="Email">
-                        </div>
-                        <div class="form">
-                            <input type="password" placeholder="Senha">
-                        </div>
-                        <div class="form">
-                            <input type="password" placeholder="Confirmar Senha">
+                            <input type="password" name="confirmarSenha" placeholder="Confirmar Senha">
                         </div>
                     </div>
-            
-                    <div class="tab">
-                        <div class="form">
-                            <input type="text" name="cpf" placeholder="CPF">
-                        </div>
-                    </div>
-            
+
                     <div class="btn">
-                        <button type="button" class="prev">Anterior</button>
-                        <button type="button" class="next">Próximo</button>
-                        <!-- <button type="submit" class="finish">Finalizar</button> -->
+                        <button type="submit" class="finish" name="entrar" > Entrar</button>
                     </div>
             
                 </form>
@@ -126,13 +99,12 @@
                 </div>
                 
                 <div class="signup-link">
-                    Já tem uma conta? <a href="login.php">Faça login</a>
+                    Não tem uma conta? <a href="cadastrar.php">Cadastre-se</a>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="sweetalert2.all.min.js"></script>
-    <script src="../js/multstep.js"></script>
 </body>
 </html>

@@ -34,3 +34,16 @@
         }
     }    
 ?>
+
+<script>
+    let nome = document.getElementsByName('nome')
+    let email = document.getElementsByName('email')
+    let telefone =  document.getElementsByName('telefone')
+    let cpf = document.getElementsByName('cpf')
+
+    nome.innerHTML = "<?php echo $nome; ?>"
+    email.innerHTML = "<?php echo $email; ?>"
+    telefone.innerHTML = "<?php echo $telefone; ?>"
+    cpf.innerHTML = "<?php echo $cpf; ?>"
+
+</script>

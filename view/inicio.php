@@ -1,3 +1,7 @@
+<?php
+    include '../backend/includes/cadastrar.php'; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,8 +43,8 @@
             <div class="user-info">
                 <div class="avatar"></div>
                 <div>
-                    <p class="email">luiz.exemplo@gmail.com</p>
-                    <p class="cpf">477.336.998-38</p>
+                    <p class="email" name="email"></p>
+                    <p class="cpf" name="cpf"></p>
                 </div>
             </div>
             <button class="logout-btn">Sair</button>
@@ -60,7 +64,7 @@
             </nav>
 
             <div class="logo">
-                <a href="/index.html">
+                <a href="/index.php">
                     <h1>Planeje</h1>
                 </a>
             </div>
@@ -71,10 +75,10 @@
 
             </div>
             <div class="user-data">
-                <p class="name">Nome: Tarsicio do Acordeon</p>
-                <p class="CPF">CPF: 123.456.789-00</p>
-                <p class="telefone">Telefone: (12) 99158-9724</p>
-                <p class="email">tarsicioDoArcode@gmail.com</p>
+                <p class="name" name="nome"></p>
+                <p class="CPF" name="cpf"></p>
+                <p class="telefone" name="telefone"></p>
+                <p class="email" name="email"></p>
             </div>
         </div>
     </header>

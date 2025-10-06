@@ -29,8 +29,13 @@ function showTab(index) {
     // Mostrar ou esconder botão "Anterior"
     btnPrev.style.display = index === 0 ? 'none' : 'inline-block';
 
-    // Trocar texto do botão "Próximo" para "Finalizar" na última etapa
-    btnNext.textContent = index === tabs.length - 1 ? 'Finalizar' : 'Próximo';
+    if (index === tabs.length - 1) {
+        btnNext.style.display = 'none';
+        document.querySelector('.finish').style.display = 'inline-block';
+    } else {
+        btnNext.style.display = 'inline-block';
+        document.querySelector('.finish').style.display = 'none';
+    }
 }
 
 btnNext.addEventListener('click', () => {
@@ -44,7 +49,7 @@ btnNext.addEventListener('click', () => {
             title: "Drag me!",
             icon: "success",
             draggable: true
-          });
+        });
     }
 });
 

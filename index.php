@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planeje</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet">
@@ -24,8 +24,8 @@
             </div>
             <nav class="main-nav">
                 <ul class="main-sing">
-                    <li><a class="sing-in" href="./view/login.html">Entrar</a></li>
-                    <li><a class="sing-up" href="./view/login.html">Criar conta</a></li>
+                    <li><a class="sing-in" href="./view/login.php">Entrar</a></li>
+                    <li><a class="sing-up" href="./view/cadastrar.php">Criar conta</a></li>
                 </ul>
             </nav>
         </div>
@@ -37,7 +37,7 @@
             <div class="hero-content">
                 <h2>Organize sua viagem dos sonhos em um só lugar</h2>
                 <p>Tudo o que você precisa para planejar a viagem perfeita</p>
-                <button class="btn-primary">Comece a Planejar <span class="material-symbols-outlined">arrow_forward</span> </button>
+                <button class="btn-primary"><a href="./view/cadastrar.php">Comece a Planejar</a> <span class="material-symbols-outlined">arrow_forward</span> </button>
             </div>
         </div>
         <a href="#scroll-down" class="down">
@@ -79,7 +79,7 @@
     <section class="create-accont">
         <h1>Pronto para começar sua próxima aventura?</h1>
         <h3>Junte-se a milhares de viajantes que já organizam suas viagens com o Planeje</h3>
-        <button><a href="#">Criar Conta</a></button>
+        <button><a href="./view/cadastrar.php">Criar Conta</a></button>
     </section>
 
 
