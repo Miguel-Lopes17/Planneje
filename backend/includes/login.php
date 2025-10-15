@@ -1,29 +1,36 @@
 <?php
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-    $confirmarSenha = $_POST['confirmarSenha'];
-    $entrar = $_POST['entrar'];
+    if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+    }
+
     include 'conexao.php';
+    include 'alert.php';
 
-    if($senha == $confirmarSenha) {
-        $stmt = $con->prepare("SELECT * FROM tblCliente WHERE CliEmail = ? AND CLiSenha = ?");
+    $email = $_POST['email'] ?? '';
+    $senha = $_POST['senha'] ?? '';
+
+    if (!empty($email) && !empty($senha)) {
+
+        $stmt = $con->prepare("SELECT CliSenha FROM tblCliente WHERE CliEmail = ?");
         $stmt->bindParam(1, $email);
-        $stmt->bindParam(2, $senha);
         $stmt->execute();
-    }else {
-        echo "As senhas não coincidem";
-    }
 
-    $resultado = $stmt->get_result();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($resultado->num_rows > 0) {
-        echo "Login bem-sucedido!";
+        if ($result && password_verify($senha, $result['CliSenha'])) {
+            $_SESSION['email'] = $email;
+            include 'usrdados.php';
+            echo "<script> mostrarAlert('Login bem-sucedido!');setTimeout(() => {window.location.href='../../view/inicio.php';}, 1500);</script>";
+            exit;
+
+        } else {
+            echo "<script> mostrarAlert('Email ou senha incorretos.');setTimeout(() => {window.history.back();}, 1500);</script>";
+
+        }
+
     } else {
-        echo "Email ou senha incorretos.";
+        echo "<script> mostrarAlert('Preencha todos os campos.');setTimeout(() => {window.history.back();}, 1500);</script>";
+
     }
 
-    $stmt->close();
-    $mysqli->close();
-
-    
 ?>
