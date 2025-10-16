@@ -1,5 +1,25 @@
 <?php
     include '../backend/includes/cadastrar.php'; 
+    
+    
+
+session_start();
+
+
+error_log("DEBUG: Inicio.php - Sessão usuário: " . (isset($_SESSION['usuario']) ? 'Setada' : 'Não setada'));
+
+
+if (!isset($_SESSION['usuario'])) {
+    error_log("DEBUG: Usuário não logado - redirecionando para login");
+    header("Location: login.php");
+    exit();
+}
+
+$usuario = $_SESSION['usuario'];
+error_log("DEBUG: Usuário logado: " . $usuario['email']);
+
+$logado = $_POST['usuario']
+
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +63,7 @@
             <div class="user-info">
                 <div class="avatar"></div>
                 <div>
-                    <p class="email" name="email"></p>
+                    <p class="email" name="email"><?php echo $logado ?></p>
                     <p class="cpf" name="cpf"></p>
                 </div>
             </div>
