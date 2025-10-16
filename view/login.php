@@ -85,13 +85,10 @@
                         <div class="form">
                             <input type="password" name="senha" placeholder="Senha">
                         </div>
-                        <div class="form">
-                            <input type="password" name="confirmarSenha" placeholder="Confirmar Senha">
-                        </div>
                     </div>
 
                     <div class="btn">
-                        <button type="submit" class="finish" name="entrar" > Entrar</button>
+                        <button type="submit" class="finish" name="entrar">Entrar</button>
                     </div>
             
                 </form>

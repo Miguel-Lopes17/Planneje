@@ -1,3 +1,4 @@
+
 <?php
     include '../backend/includes/cadastrar.php'; 
     
@@ -21,6 +22,9 @@ error_log("DEBUG: Usuário logado: " . $usuario['email']);
 $logado = $_POST['usuario']
 
 ?>
+
+<? include '../backend/includes/usrdados.php'; ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -63,8 +67,11 @@ $logado = $_POST['usuario']
             <div class="user-info">
                 <div class="avatar"></div>
                 <div>
-                    <p class="email" name="email"><?php echo $logado ?></p>
-                    <p class="cpf" name="cpf"></p>
+
+
+                    <p class="email"> <?php echo $email; ?></p>
+                    <p class="cpf"> <?php echo $cpf; ?></p>
+
                 </div>
             </div>
             <button class="logout-btn">Sair</button>
@@ -95,10 +102,10 @@ $logado = $_POST['usuario']
 
             </div>
             <div class="user-data">
-                <p class="name" name="nome"></p>
-                <p class="CPF" name="cpf"></p>
-                <p class="telefone" name="telefone"></p>
-                <p class="email" name="email"></p>
+                <p class="name">Nome: <?php echo $nome; ?></p>
+                <p class="CPF">CPF: <?php echo $cpf; ?></p>
+                <p class="telefone">Telefone: <?php echo $telefone; ?></p>
+                <p class="EMAIL">Email: <?php echo $email; ?></p>
             </div>
         </div>
     </header>
