@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Visualizar plano
     function viewPlan(plan) {
-        window.location.href = `plans.html?`
+        window.location.href = `plans.php?`
         // Aqui você implementaria a navegação para a página de detalhes do plano
     }
 
