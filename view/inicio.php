@@ -117,15 +117,19 @@
                 <h3 class="modal-title" id="modalTitle">Adicionar Novo Plano</h3>
                 <button class="close" id="closeModal">&times;</button>
             </div>
-            <form id="planForm">
+            <form action="../backend/includes/plans.php" method="POST" id="planForm">
                 <input type="hidden" id="planId">
                 <div class="form-group">
                     <label for="destination">Destino</label>
-                    <input type="text" id="destination" class="form-control" required>
+                    <input type="text" id="destination" name="destination" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Data</label>
+                    <input type="date" id="date" name="date" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="description">Descrição (opcional)</label>
-                    <textarea id="description" class="form-control" rows="3"></textarea>
+                    <textarea id="description" name="description" class="form-control" rows="3"></textarea>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" id="cancelButton">Cancelar</button>
