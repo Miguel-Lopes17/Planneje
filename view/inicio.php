@@ -29,7 +29,7 @@
 
         <ul class="sidebar-links">
             <li><a href="#">Configuração</a></li>
-            <li><a href="#">Ajuda</a></li>
+            <li><a href="ajuda.php">Ajuda</a></li>
             <li><a href="#">Sobre</a></li>
             <li><a href="#">Planos arquivados</a></li>
             <li><a href="#">Compartilhar</a></li>
@@ -56,7 +56,7 @@
             <nav>
                 <ul class="ul-list">
                     <a href="#">Meus Planos</a>
-                    <a href="#">Ajuda</a>
+                    <a href="ajuda.php">Ajuda</a>
                     <a href="#">Dicas</a>
                 </ul>
 
