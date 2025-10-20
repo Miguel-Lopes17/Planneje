@@ -34,145 +34,282 @@
             --vermelho: #dc3545;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+.tab-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
 
-        body {
-            background-color: var(--cinza-claro);
-            color: var(--cinza-escuro);
-            line-height: 1.6;
-        }
+.tab-content {
+    display: flex;
+    flex-direction: column;
+    margin-top:3%;
+    margin-left: 4%;
+    padding: 15px;
+    width: 55%;
+    border-radius: 8px;
+    box-shadow: 0px 2px 2px 4px #0000003f;
+    gap: 50px;
+}
 
-        .tab-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    background: #f5f5f5;
+    border-radius: 10px;
+}
 
-        .tabs-content {
-            flex: 1;
-            min-width: 300px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
+#sectio1 {
+    border-left: 6px solid  #2cd212;
+}
+#sectio3 {
+    border-left: 6px solid  #fffb18;
+}
+#sectio4 {
+    border-left: 6px solid  #ff9615;
+}
 
-        .section {
-            background-color: var(--branco);
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            transition: transform 0.3s ease;
-        }
+.upload-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--roxo);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
 
-        .section:hover {
-            transform: translateY(-5px);
-        }
+.upload-btn:hover {
+    background: var(--lilas);
+}
 
-        .section h4 {
-            color: var(--roxo);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+#documentUpload {
+    display: none;
+}
 
-        .section h4 i {
-            font-size: 1.2rem;
-        }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+.document-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background: var(--cinza-claro);
+    border-radius: 8px;
+    text-align: center;
+    width: 120px;
+    margin: 5px;
+}
 
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: var(--cinza-escuro);
-        }
+.doc-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--cinza-medio);
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
+.document-preview {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid var(--roxo);
+}
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--roxo);
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(106, 13, 173, 0.2);
-        }
+.doc-name {
+    font-size: 0.8rem;
+    color: var(--cinza-escuro);
+    word-break: break-word;
+    max-width: 100px;
+}
 
-        .btn-save {
-            background-color: var(--roxo);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
+.remove-doc {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--vermelho);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
 
-        .btn-save:hover {
-            background-color: var(--roxo-escuro);
-        }
+.remove-doc:hover {
+    background: #c82333;
+}
 
-        .document-upload {
-            margin-top: 10px;
-        }
+.documents-preview {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
 
-        .upload-btn {
-            display: inline-block;
-            background-color: var(--cinza-claro);
-            color: var(--cinza-escuro);
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            border: 1px dashed var(--cinza-medio);
-            transition: all 0.3s;
-        }
+/* Modal para imagem ampliada */
+.image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
-        .upload-btn:hover {
-            background-color: var(--cinza-medio);
-        }
+.image-modal-content {
+    position: relative;
+    background: white;
+    border-radius: 10px;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+}
 
-        .documents-preview {
-            margin-top: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+.enlarged-image {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px 8px 0 0;
+}
 
-        .document-item {
-            background-color: var(--cinza-claro);
-            padding: 8px 12px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-        }
+.close-image-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--vermelho);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 2001;
+}
 
-        .document-item i {
-            color: var(--roxo);
-        }
+.image-modal-footer {
+    padding: 15px;
+    background: var(--cinza-claro);
+    border-radius: 0 0 8px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image-filename {
+    font-weight: 600;
+    color: var(--cinza-escuro);
+}
+
+.download-image-btn {
+    background: var(--roxo);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.download-image-btn:hover {
+    background: var(--roxo-escuro);
+}
+
+/* Adicionar cursor pointer nas imagens do preview */
+.document-preview {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.document-preview:hover {
+    transform: scale(1.05);
+}
+
+/* Formulários */
+.budget-form,
+.travel-info,
+.medical-info {
+    display: grid;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--dark-text);
+}
+
+.budget-input,
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--roxo);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.btn-save {
+    padding: 10px 20px;
+    background: var(--roxo);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+    justify-self: start;
+    margin-bottom: 2%;
+}
+
+.btn-save:hover {
+    background: var(--lilas);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .section {
+        padding: 1rem;
+    }
+    
+    .budget-form,
+    .travel-info,
+    .medical-info {
+        grid-template-columns: 1fr;
+    }
+}
 
         .gastos {
             flex: 0 0 300px;
@@ -206,22 +343,6 @@
         .valorRestante {
             color: var(--cinza-escuro);
             margin-top: 5px;
-        }
-
-        .btn-depositar {
-            background-color: var(--roxo);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            width: 100%;
-            transition: background-color 0.3s;
-        }
-
-        .btn-depositar:hover {
-            background-color: var(--roxo-escuro);
         }
 
         .progress-bar {
@@ -357,9 +478,7 @@
         <div class="container-user">
             <div class="tabs-container">
                 <div class="tab active" data-id="1">
-                    <span class="tab-title">
-                        <?php echo $nome ?>
-                    </span>
+                    <span class="tab-title"><?php echo $nome ?></span>
                     <button class="close-tab">&times;</button>
                 </div>
                 <button class="add-tab">+</button>
@@ -367,138 +486,151 @@
         </div>
 
         <div class="tab-container">
-        <div class="tabs-content">
-            <div class="section">
+            <div class="tab-content">
                 <h3>Minhas informações</h3>
-                <p>Gerencie suas informações pessoais e documentos importantes para a viagem.</p>
-            </div>
 
-            <div class="section" id="section1">
-                <h4><i class="bi bi-file-earmark"></i> Documentos</h4>
-                <div class="document-upload">
-                    <input type="file" id="documentUpload" accept="image/*,.pdf" multiple style="display: none;">
-                    <label for="documentUpload" class="upload-btn">
-                        <i class="bi bi-cloud-upload"></i> Adicionar Documentos
-                    </label>
-                    <div class="documents-preview" id="documentsPreview"></div>
+                <div class="section" id="sectio1">
+                    <h4 style="margin-left:  2%;"><i class="bi bi-file-earmark"></i> Documentos</h4>
+                    <div class="document-upload" style="margin-left:  2%;"">
+                    <input type="file" id="documentUpload" accept="image/*,.pdf" multiple>
+                        <label for="documentUpload" class="upload-btn">
+                            <i class="bi bi-cloud-upload"></i> Adicionar Documentos
+                        </label>
+                        <div class="documents-preview" id="documentsPreview"></div>
+                    </div>
+                </div>
+
+                <!-- Seção de Informações da Viagem -->
+                <div class="section" id="sectio3">
+                    <h4 style="margin-left:  2%;"><i class="bi bi-geo-alt"></i> Informações da Viagem</h4>
+                    <div class="travel-info" style="margin-left:  2%;">
+                        <div class="form-group">
+                            <label>Destino:</label>
+                            <input type="text" id="destination" placeholder="Para onde vamos?">
+                        </div>
+                        <div class="form-group">
+                            <label>Data de Ida:</label>
+                            <input type="date" id="departureDate">
+                        </div>
+                        <div class="form-group">
+                            <label>Data de Volta:</label>
+                            <input type="date" id="returnDate">
+                        </div>
+                        <div class="form-group">
+                            <label>Hotel/Hospedagem:</label>
+                            <input type="text" id="accommodation" placeholder="Onde vamos ficar?">
+                        </div>
+                        <button class="btn-save" onclick="saveTravelInfo()">Salvar Informações</button>
+                    </div>
+                </div>
+
+                <!-- Seção de Saúde -->
+                <div class="section" id="sectio4">
+                    <h4 style="margin-left:  2%;"><i class="bi bi-heart-pulse"></i> Informações Médicas</h4>
+                    <div class="medical-info" style="margin-left:  2%;">
+                        <div class="form-group">
+                            <label>Tipo Sanguíneo:</label>
+                            <select id="bloodType">
+                                <option value="">Selecionar</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Alergias:</label>
+                            <textarea id="allergies" placeholder="Liste suas alergias..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Medicações:</label>
+                            <textarea id="medications" placeholder="Liste medicações em uso..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Contato de Emergência:</label>
+                            <input type="text" id="emergencyContact" placeholder="Nome e telefone">
+                        </div>
+                        <button class="btn-save" onclick="saveMedicalInfo()">Salvar Informações</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="section" id="section2">
-                <h4><i class="bi bi-geo-alt"></i> Informações da Viagem</h4>
-                <div class="travel-info">
-                    <div class="form-group">
-                        <label>Destino:</label>
-                        <input type="text" id="destination" placeholder="Para onde vamos?">
+            <div class="gastos">
+                <div class="orcamento">
+                    <h3>Orçamento da Viagem</h3>
+                    <div class="deposito">
+                        <p class="valorTotal">R$ 0 / R$ 0</p>
+                        <div class="progress-bar">
+                            <div class="progress" id="budgetProgress" style="width: 0%"></div>
+                        </div>
+                        <p class="valorRestante">Valor Restante: R$ 0</p>
                     </div>
-                    <div class="form-group">
-                        <label>Data de Ida:</label>
-                        <input type="date" id="departureDate">
-                    </div>
-                    <div class="form-group">
-                        <label>Data de Volta:</label>
-                        <input type="date" id="returnDate">
-                    </div>
-                    <div class="form-group">
-                        <label>Hotel/Hospedagem:</label>
-                        <input type="text" id="accommodation" placeholder="Onde vamos ficar?">
-                    </div>
-                    <button class="btn-save" onclick="saveTravelInfo()">Salvar Informações</button>
+                    <button class="btn-depositar" onclick="toggleModal('budgetModal')">Definir Orçamento</button>
+                    <button class="btn-depositar" onclick="toggleModal('depositModal')">Depositar</button>
                 </div>
-            </div>
 
-            <div class="section" id="section3">
-                <h4><i class="bi bi-heart-pulse"></i> Informações Médicas</h4>
-                <div class="medical-info">
-                    <div class="form-group">
-                        <label>Tipo Sanguíneo:</label>
-                        <select id="bloodType">
-                            <option value="">Selecionar</option>
-                            <option value="A+">A+</option>
-                            <option value="A-">A-</option>
-                            <option value="B+">B+</option>
-                            <option value="B-">B-</option>
-                            <option value="AB+">AB+</option>
-                            <option value="AB-">AB-</option>
-                            <option value="O+">O+</option>
-                            <option value="O-">O-</option>
-                        </select>
+                <div class="limite-diario">
+                    <h3>Limite Diário</h3>
+                    <div class="deposito">
+                        <p class="valorTotal">R$ 0 / R$ 0</p>
+                        <div class="progress-bar">
+                            <div class="progress" id="dailyLimitProgress" style="width: 0%"></div>
+                        </div>
+                        <p class="valorRestante">Valor Gasto: R$ 0</p>
                     </div>
-                    <div class="form-group">
-                        <label>Alergias:</label>
-                        <textarea id="allergies" placeholder="Liste suas alergias..." rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Medicações:</label>
-                        <textarea id="medications" placeholder="Liste medicações em uso..." rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Contato de Emergência:</label>
-                        <input type="text" id="emergencyContact" placeholder="Nome e telefone">
-                    </div>
-                    <button class="btn-save" onclick="saveMedicalInfo()">Salvar Informações</button>
+                    <button class="btn-depositar" onclick="toggleModal('limitModal')">Definir Limite</button>
                 </div>
             </div>
         </div>
 
-        <div class="gastos">
-            <div class="orcamento">
-                <h3>Orçamento da Viagem</h3>
-                <div class="deposito">
-                    <p class="valorTotal">R$ 1200 / R$ 3000</p>
-                    <div class="progress-bar">
-                        <div class="progress" id="budgetProgress" style="width: 40%"></div>
-                    </div>
-                    <p class="valorRestante">Valor Restante: R$ 1800</p>
+        <!-- Modal para definir orçamento -->
+        <div class="modal" id="budgetModal">
+            <div class="modal-content">
+                <h3>Definir Orçamento</h3>
+                <div class="form-group">
+                    <label>Valor total do orçamento (R$):</label>
+                    <input type="number" id="budgetTarget" min="1" placeholder="Digite o valor total">
                 </div>
-                <button class="btn-depositar" onclick="abrirCaixa()">Depositar</button>
-            </div>
-
-            <div class="limite-diario">
-                <h3>Limite Diário</h3>
-                <div class="deposito">
-                    <p class="valorTotal">R$ 0 / R$ 0</p>
-                    <div class="progress-bar">
-                        <div class="progress" id="dailyLimitProgress" style="width: 0%"></div>
-                    </div>
-                    <p class="valorRestante">Valor Gasto: R$ 0</p>
+                <div class="modal-buttons">
+                    <button class="btn-cancel" onclick="toggleModal('budgetModal', false)">Cancelar</button>
+                    <button class="btn-confirm" onclick="confirmAction('budget')">Confirmar</button>
                 </div>
-                <button class="btn-depositar" onclick="definirLimite()">Definir Limite</button>
             </div>
         </div>
-    </div>
 
-    <!-- Modal para depósito -->
-    <div class="modal" id="depositModal">
-        <div class="modal-content">
-            <h3>Depositar para Viagem</h3>
-            <div class="form-group">
-                <label>Valor a depositar (R$):</label>
-                <input type="number" id="depositAmount" min="1" placeholder="Digite o valor">
-            </div>
-            <div class="modal-buttons">
-                <button class="btn-cancel" onclick="fecharModal('depositModal')">Cancelar</button>
-                <button class="btn-confirm" onclick="confirmarDeposito()">Confirmar</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal para definir limite diário -->
-    <div class="modal" id="limitModal">
-        <div class="modal-content">
-            <h3>Definir Limite Diário</h3>
-            <div class="form-group">
-                <label>Limite diário (R$):</label>
-                <input type="number" id="dailyLimit" min="1" placeholder="Digite o valor">
-            </div>
-            <div class="modal-buttons">
-                <button class="btn-cancel" onclick="fecharModal('limitModal')">Cancelar</button>
-                <button class="btn-confirm" onclick="confirmarLimite()">Confirmar</button>
+        <!-- Modal para depósito -->
+        <div class="modal" id="depositModal">
+            <div class="modal-content">
+                <h3>Depositar para Viagem</h3>
+                <div class="form-group">
+                    <label>Valor a depositar (R$):</label>
+                    <input type="number" id="depositAmount" min="1" placeholder="Digite o valor">
+                </div>
+                <div class="modal-buttons">
+                    <button class="btn-cancel" onclick="toggleModal('depositModal', false)">Cancelar</button>
+                    <button class="btn-confirm" onclick="confirmAction('deposit')">Confirmar</button>
+                </div>
             </div>
         </div>
-    </div>
 
-
+        <!-- Modal para definir limite diário -->
+        <div class="modal" id="limitModal">
+            <div class="modal-content">
+                <h3>Definir Limite Diário</h3>
+                <div class="form-group">
+                    <label>Limite diário (R$):</label>
+                    <input type="number" id="dailyLimit" min="1" placeholder="Digite o valor">
+                </div>
+                <div class="modal-buttons">
+                    <button class="btn-cancel" onclick="toggleModal('limitModal', false)">Cancelar</button>
+                    <button class="btn-confirm" onclick="confirmAction('limit')">Confirmar</button>
+                </div>
+            </div>
+        </div>
     </main>
 
 
