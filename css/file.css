@@ -240,6 +240,448 @@ a {
     cursor: pointer;
 }
 
+        .container-user {
+            display: flex;
+            background: var(--roxo);
+            align-items: center;
+            gap: 2rem;
+        }
 
+        :root {
+            --roxo: #6a0dad;
+            --roxo-claro: #8a2be2;
+            --roxo-escuro: #4b0082;
+            --cinza-claro: #f5f5f5;
+            --cinza-medio: #e0e0e0;
+            --cinza-escuro: #333;
+            --branco: #ffffff;
+            --verde: #28a745;
+            --vermelho: #dc3545;
+        }
+
+        .tabs-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 2.4%;
+            margin-left: 2%;
+        }
+
+        .tab-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .tab-content {
+            display: flex;
+            flex-direction: column;
+            margin-top: 3%;
+            padding: 15px;
+            width: 55%;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            gap: 50px;
+        }
+
+        .section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+
+        #sectio1 {
+            border-left: 6px solid #2cd212;
+        }
+
+        #sectio3 {
+            border-left: 6px solid #fffb18;
+        }
+
+        #sectio4 {
+            border-left: 6px solid #ff9615;
+        }
+
+        .upload-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--roxo);
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .upload-btn:hover {
+            background: var(--lilas);
+        }
+
+        #documentUpload {
+            display: none;
+        }
+
+
+        .document-item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            background: var(--cinza-claro);
+            border-radius: 8px;
+            text-align: center;
+            width: 120px;
+            margin: 5px;
+        }
+
+        .doc-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .document-preview {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 2px solid var(--roxo);
+        }
+
+        .doc-name {
+            font-size: 0.8rem;
+            color: var(--cinza-escuro);
+            word-break: break-word;
+            max-width: 100px;
+        }
+
+        .remove-doc {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--vermelho);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .remove-doc:hover {
+            background: #c82333;
+        }
+
+        .documents-preview {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        /* Modal para imagem ampliada */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .image-modal-content {
+            position: relative;
+            background: white;
+            border-radius: 10px;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .enlarged-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .close-image-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--vermelho);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        .image-modal-footer {
+            padding: 15px;
+            background: var(--cinza-claro);
+            border-radius: 0 0 8px 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .image-filename {
+            font-weight: 600;
+            color: var(--cinza-escuro);
+        }
+
+        .download-image-btn {
+            background: var(--roxo);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .download-image-btn:hover {
+            background: var(--roxo-escuro);
+        }
+
+        /* Adicionar cursor pointer nas imagens do preview */
+        .document-preview {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .document-preview:hover {
+            transform: scale(1.05);
+        }
+
+        /* Formulários */
+        .budget-form,
+        .travel-info,
+        .medical-info {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+
+        .budget-input,
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--roxo);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .btn-save {
+            padding: 10px 20px;
+            background: var(--roxo);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+            justify-self: start;
+            margin-bottom: 2%;
+        }
+
+        .btn-save:hover {
+            background: var(--lilas);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .section {
+                padding: 1rem;
+            }
+
+            .budget-form,
+            .travel-info,
+            .medical-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gastos {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 3%;
+        }
+
+        .orcamento,
+        .limite-diario {
+            background-color: var(--branco);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        .orcamento h3,
+        .limite-diario h3 {
+            color: var(--roxo);
+            margin-bottom: 15px;
+        }
+
+        .deposito {
+            margin-bottom: 15px;
+        }
+
+        .valorTotal {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--roxo);
+        }
+
+        .valorRestante {
+            color: var(--cinza-escuro);
+            margin-top: 5px;
+        }
+
+        .btn-depositar {
+            border: none;
+            background: #6a0dad;
+            padding: 10px;
+            color: #fff;
+            border-radius: 13px;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .btn-depositar:hover {
+            background: #8a2be2;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: var(--cinza-medio);
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--verde);
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--branco);
+            padding: 25px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal h3 {
+            margin-bottom: 15px;
+            color: var(--roxo);
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .modal-buttons button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn-confirm {
+            background-color: var(--roxo);
+            color: white;
+        }
+
+        .btn-cancel {
+            background-color: var(--cinza-medio);
+            color: var(--cinza-escuro);
+        }
+
+        @media (max-width: 768px) {
+            .tab-container {
+                flex-direction: column;
+                width: 80vh;
+                margin-left: 3%;
+            }
+
+            .gastos {
+                width: 45vh;
+                height: 20vh;
+            }
+
+            div p {
+                display: none;
+            }
+
+            .valorRestante {
+                display: flex;
+            }
+        }
 
 
