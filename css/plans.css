@@ -147,7 +147,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: var(--dark-text);
     line-height: 1.6;
-    background-color: var(--white);
+    background-color: var(--light-gray);
     transition: none; /* remove transição de margin */
 }
 
@@ -232,27 +232,8 @@ nav {
     background-color: var(--roxo);
     border-radius: 4px;
     transition: all 0.3s ease;
-    width: 27%;
+    width: 30%;
     margin-left: 1%;
-}
-
-.ul-list a:nth-child(1):hover ~ .animation {
-    left:0;
-    background-color: var(--roxo);
-}
-
-.ul-list a:nth-child(2):hover ~ .animation {
-    left: 33.33%;
-    background-color: #9b59b6;
-}
-
-.ul-list a:nth-child(3):hover ~ .animation {
-    left: 66.66%;
-    background-color: #8e44ad;
-}
-
-.start-home {
-    left: 0;
 }
 
 .container-user {

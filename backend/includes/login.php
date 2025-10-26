@@ -23,10 +23,27 @@
             if ($result && password_verify($senha, $result['CliSenha'])) {
                 $_SESSION['email'] = $email;
                 include 'usrdados.php';
-                echo "<script> mostrarAlert('Login bem-sucedido!');setTimeout(() => {window.location.href='../../view/inicio.php';}, 1500);</script>";
+                echo " <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+                <script> Swal.fire({
+                title: 'Login bem-sucedido!',
+                icon: 'success',
+                confirmButtonText: 'Ok',
+                timer: 1500,
+                showConfirmButton: false
+            }).then(() => {
+                window.location.href='../../view/inicio.php';
+            });</script>";
                 exit;
             } else {
-                echo "<script> mostrarAlert('Email ou senha incorretos.');setTimeout(() => {window.history.back();}, 1500);</script>";
+                echo " <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+                <script> Swal.fire({
+                title: 'Email ou Senha incorreto!',
+                icon: 'error',
+                confirmButtonText: 'Ok',
+                timer: 1500,
+                showConfirmButton: false
+            }).then(() => { setTimeout(() => {window.history.back();}, 1300);
+            }); </script>";
                 exit;
             }
 

@@ -1,13 +1,17 @@
+<?php include '../backend/includes/usrdados.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ajuda - Planeje</title>
-<link rel="stylesheet" href="ajuda.css">
+<title>Planeje - Ajuda </title>
+
+<!-- Fonte e ícones -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="stylesheet" href="../css/plans.css">
+
 <style>
-/* Usa as cores do style base fornecido */
 :root {
     --roxo: #6A0DAD;
     --lilas: #9B51E0;
@@ -23,139 +27,11 @@ body {
     color: var(--dark-text);
     background-color: var(--light-gray);
     line-height: 1.6;
-}
-
-
-
-/* MENU LATERAL */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 260px;
-    height: 100vh;
-    background: #fff;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1rem;
-    z-index: 2000;
-    transition: transform 0.3s ease;
-}
-
-.sidebar.collapsed {
-    transform: translateX(-100%);
-}
-
-.sidebar-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-}
-
-.sidebar-header h3 {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-left: .5rem;
-}
-
-.close-btn {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    color: var(--roxo);
-}
-
-.sidebar-links {
-    list-style: none;
-    padding: 0;
     margin: 0;
-    flex: 1;
 }
 
-.sidebar-links li {
-    margin: .8rem 0;
-}
-
-.sidebar-links a {
-    text-decoration: none;
-    color: #333;
-    font-size: 0.95rem;
-    transition: 0.3s;
-}
-
-.sidebar-links a:hover {
-    color: var(--roxo);
-}
-
-.sidebar-footer {
-    border-top: 1px solid #eee;
-    padding-top: 1rem;
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: .7rem;
-    margin-bottom: 1rem;
-}
-
-.avatar {
-    width: 40px;
-    height: 40px;
-    background: var(--roxo);
-    border-radius: 50%;
-}
-
-.email {
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.cpf {
-    font-size: 0.8rem;
-    color: #777;
-}
-
-.logout-btn {
-    width: 100%;
-    background: var(--roxo);
-    color: #fff;
-    border: none;
-    padding: .5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.logout-btn:hover {
-    background: #8e44ad;
-}
-
-.menu-toggle {
-    position: absolute ;
-    top: 15px;
-    left: 15px;
-    color: var(--roxo);
-    font-size: 1.3rem;
-    cursor: pointer;
-    padding: 10px 12px;
-    z-index: 2100;
-    background: none;
-    border: none;
-}
-
-
-.sidebar:not(.collapsed) ~ .menu-toggle {
-    display: none;
-}
-
-/* container principal */
-.help-container {
+/* ===== CONTEÚDO PRINCIPAL ===== */
+main {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 2rem;
@@ -164,7 +40,7 @@ body {
     box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
 }
 
-/* cabeçalho */
+/* Cabeçalho */
 .help-header {
     text-align: center;
     margin-bottom: 2rem;
@@ -173,7 +49,7 @@ body {
 .help-header h1 {
     color: var(--roxo);
     font-size: 2rem;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 
 .help-header p {
@@ -181,36 +57,34 @@ body {
     font-size: 1rem;
 }
 
-/* seção de ajuda */
+/* Seções */
 .help-section {
     margin-bottom: 2rem;
     border-left: 5px solid var(--lilas);
-    padding-left: 1rem;
+    padding: 1rem;
     background-color: var(--light-purple);
     border-radius: 8px;
     transition: 0.3s ease;
 }
 
-
-
 .help-section h2 {
     color: var(--roxo);
     font-size: 1.3rem;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 
 .help-section ul {
     list-style: none;
     padding-left: 0;
+    margin: 0;
 }
 
 .help-section li {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     color: #444;
     font-size: 0.95rem;
 }
 
-/* botões e destaques */
 .highlight {
     background: var(--accent);
     color: var(--dark-text);
@@ -219,7 +93,7 @@ body {
     font-weight: 600;
 }
 
-/* link de suporte */
+/* Rodapé de suporte */
 .support {
     text-align: center;
     background-color: var(--lilas);
@@ -240,8 +114,9 @@ body {
 }
 </style>
 </head>
-<body>
 
+<body>
+ <!-- BOTÃO HAMBURGUER PARA ABRIR -->
     <button class="menu-toggle"><i class="fas fa-bars"></i></button>
 
     <!-- MENU LATERAL (já fechado por padrão com "collapsed") -->
@@ -253,7 +128,7 @@ body {
 
         <ul class="sidebar-links">
             <li><a href="#">Configuração</a></li>
-            <li><a href="ajuda.html">Ajuda</a></li>
+            <li><a href="ajuda.php">Ajuda</a></li>
             <li><a href="#">Sobre</a></li>
             <li><a href="#">Planos arquivados</a></li>
             <li><a href="#">Compartilhar</a></li>
@@ -265,95 +140,110 @@ body {
             <div class="user-info">
                 <div class="avatar"></div>
                 <div>
-                    <p class="email">luiz.exemplo@gmail.com</p>
+
+                    <p class="email"> <?php echo $email; ?></p>
+                    <p class="cpf"> <?php echo $cpf; ?></p>
+
                 </div>
             </div>
             <button class="logout-btn">Sair</button>
         </div>
     </aside>
+
     <header class="main-header">
         <div class="container">
+            <nav>
+                <ul class="ul-list">
+                    <a href="inicio.php" class="plans">Meus Planos</a>
+                    <a href="ajuda.php" class="ajuda">Ajuda</a>
+                    <a href="#" class="dica">Dicas</a>
+                </ul>
+
+                <div class="animation start-home"></div>
+            </nav>
 
             <div class="logo">
-                <a href="/index.php">
+                <a href="inicio.php">
                     <h1>Planeje</h1>
                 </a>
             </div>
         </div>
-
     </header>
 
-<div class="help-container">
+<!-- CONTEÚDO PRINCIPAL -->
+<main>
     <div class="help-header">
         <h1>Central de Ajuda</h1>
         <p>Guia completo para utilizar o Planeje — seu organizador de viagens.</p>
     </div>
 
-    <div class="help-section">
+    <section class="help-section">
         <h2>1. Criando sua conta</h2>
         <ul>
             <li>Acesse a opção <span class="highlight">Cadastrar</span> no menu inicial.</li>
             <li>Informe seu nome, e-mail e crie uma senha segura.</li>
             <li>Após o cadastro, faça login para acessar suas pastas de viagem.</li>
         </ul>
-    </div>
+    </section>
 
-    <div class="help-section">
+    <section class="help-section">
         <h2>2. Criando uma pasta de viagem</h2>
         <ul>
             <li>Clique em <span class="highlight">Nova Viagem</span> no painel principal.</li>
             <li>Defina um nome (ex: "Chile 2025") e adicione datas e destinos.</li>
             <li>Dentro da pasta, você poderá gerenciar documentos, orçamento e dependentes.</li>
         </ul>
-    </div>
+    </section>
 
-    <div class="help-section">
+    <section class="help-section">
         <h2>3. Armazenando documentos</h2>
         <ul>
             <li>Na aba <span class="highlight">Documentos</span>, envie passaporte, fichas médicas e reservas.</li>
             <li>Todos os arquivos ficam organizados e disponíveis para consulta.</li>
         </ul>
-    </div>
+    </section>
 
-    <div class="help-section">
+    <section class="help-section">
         <h2>4. Criando e controlando o orçamento</h2>
         <ul>
             <li>Em <span class="highlight">Orçamento</span>, adicione o valor total e os custos estimados.</li>
             <li>Registre despesas reais e acompanhe o saldo disponível em tempo real.</li>
             <li>O sistema pode alertar quando seus gastos ultrapassarem o previsto.</li>
         </ul>
-    </div>
+    </section>
 
-    <div class="help-section">
+    <section class="help-section">
         <h2>5. Controle de gastos</h2>
         <ul>
             <li>Adicione novas despesas com valor, categoria e data.</li>
             <li>Visualize seus gastos em listas e gráficos para melhor controle.</li>
         </ul>
-    </div>
+    </section>
 
-    <div class="help-section">
+    <section class="help-section">
         <h2>6. Gerenciando dependentes</h2>
         <ul>
             <li>Vá em <span class="highlight">Dependentes</span> e crie uma aba para cada pessoa.</li>
             <li>Adicione documentos pessoais e informações médicas de forma individual.</li>
         </ul>
-    </div>
+    </section>
 
-    <div class="help-section">
+    <section class="help-section">
         <h2>7. Dicas e segurança</h2>
         <ul>
             <li>Mantenha seus dados atualizados e senhas seguras.</li>
             <li>Use pastas separadas para cada viagem.</li>
             <li>Faça backup dos documentos mais importantes.</li>
         </ul>
-    </div>
+    </section>
 
     <div class="support">
-        <p>Precisa de ajuda? Entre em contato com o suporte pelo e-mail <a href="mailto:suporte@planejeviagens.com">suporte@planejeviagens.com</a></p>
+        <p>Precisa de ajuda? Entre em contato com o suporte pelo e-mail
+        <a href="mailto:suporte@planejeviagens.com">suporte@planejeviagens.com</a></p>
     </div>
-</div>
+</main>
 
+<script src="../js/inicio.js"></script>
+<script src="../js/plans.js"></script>
 </body>
 </html>
-    

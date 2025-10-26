@@ -166,3 +166,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+const animation = document.querySelector(".animation");
+
+const configs = {
+    plans: ["2%", "27%"],
+    ajuda: ["33.5%", "27%"],
+    dica: ["66%", "24%"]
+};
+
+Object.keys(configs).forEach(key => {
+    document.querySelector(`.${key}`).addEventListener("mousemove", () => {
+        const [margin, width] = configs[key];
+        animation.style.marginLeft = margin;
+        animation.style.width = width;
+    });
+}); 

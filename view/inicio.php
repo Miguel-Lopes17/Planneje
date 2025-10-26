@@ -111,6 +111,7 @@
     </main>
 
     <!-- Modal para adicionar/editar plano -->
+<form action="" method="POST">
     <div class="modal" id="planModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -138,7 +139,7 @@
             </form>
         </div>
     </div>
-
+</form>
     <!-- Menu de contexto para os três pontos -->
     <div class="dropdown-menu" id="contextMenu">
         <div class="dropdown-item" data-action="view">
