@@ -320,7 +320,7 @@ a {
             background: var(--lilas);
         }
 
-        #documentUpload {
+        #documentUpload1, #documentUpload4 {
             display: none;
         }
 

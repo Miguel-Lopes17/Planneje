@@ -37,72 +37,64 @@
 
 // Gerenciamento de upload de documentos - VERSÃO CORRIGIDA
 // Gerenciamento de upload de documentos - VERSÃO COMPLETA
-document.getElementById('documentUpload').addEventListener('change', function(e) {
-    const files = e.target.files;
-    const preview = document.getElementById('documentsPreview');
-    
-    for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-        const documentItem = document.createElement('div');
-        documentItem.className = 'document-item';
-        documentItem.setAttribute('data-filename', file.name);
-        
-        // Container para o conteúdo do documento
-        const docContent = document.createElement('div');
-        docContent.className = 'doc-content';
-        
-        // Botão de remover
-        const removeBtn = document.createElement('button');
-        removeBtn.className = 'remove-doc';
-        removeBtn.innerHTML = '&times;';
-        removeBtn.onclick = function() {
-            documentItem.remove();
-        };
-        
-        // Verificar se é imagem ou PDF
-        if (file.type.startsWith('image/')) {
-            // Para imagens, criar elemento img
-            const img = document.createElement('img');
-            img.className = 'document-preview';
-            img.alt = file.name;
-            
-            // Ler a imagem e criar preview
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                img.src = e.target.result;
-                
-                // Adicionar evento de clique para ampliar
-                img.addEventListener('click', function() {
-                    openImageModal(e.target.result, file.name);
-                });
+document.querySelectorAll('input[type="file"][id^="documentUpload"]').forEach(input => {
+    input.addEventListener('change', function(e) {
+        const files = e.target.files;
+        const sectionId = e.target.id.replace('documentUpload', '');
+        const preview = document.getElementById(`documentsPreview${sectionId}`);
+
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            const documentItem = document.createElement('div');
+            documentItem.className = 'document-item';
+            documentItem.setAttribute('data-filename', file.name);
+
+            const docContent = document.createElement('div');
+            docContent.className = 'doc-content';
+
+            const removeBtn = document.createElement('button');
+            removeBtn.className = 'remove-doc';
+            removeBtn.innerHTML = '&times;';
+            removeBtn.onclick = function() {
+                documentItem.remove();
             };
-            reader.readAsDataURL(file);
-            
-            docContent.appendChild(img);
-        } else {
-            // Para PDFs e outros arquivos, mostrar ícone
-            const icon = document.createElement('i');
-            icon.className = file.type === 'application/pdf' ? 'bi bi-file-pdf' : 'bi bi-file-earmark';
-            icon.style.fontSize = '3rem';
-            icon.style.color = 'var(--roxo)';
-            
-            docContent.appendChild(icon);
+
+            if (file.type.startsWith('image/')) {
+                const img = document.createElement('img');
+                img.className = 'document-preview';
+                img.alt = file.name;
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    img.src = e.target.result;
+                    img.addEventListener('click', function() {
+                        openImageModal(e.target.result, file.name);
+                    });
+                };
+                reader.readAsDataURL(file);
+
+                docContent.appendChild(img);
+            } else {
+                const icon = document.createElement('i');
+                icon.className = file.type === 'application/pdf' ? 'bi bi-file-pdf' : 'bi bi-file-earmark';
+                icon.style.fontSize = '3rem';
+                icon.style.color = 'var(--roxo)';
+                docContent.appendChild(icon);
+            }
+
+            const name = document.createElement('span');
+            name.className = 'doc-name';
+            name.textContent = file.name.length > 15 ? file.name.substring(0, 12) + '...' : file.name;
+            name.title = file.name;
+
+            docContent.appendChild(name);
+            documentItem.appendChild(docContent);
+            documentItem.appendChild(removeBtn);
+            preview.appendChild(documentItem);
         }
-        
-        // Nome do arquivo (truncado se for muito longo)
-        const name = document.createElement('span');
-        name.className = 'doc-name';
-        name.textContent = file.name.length > 15 ? file.name.substring(0, 12) + '...' : file.name;
-        name.title = file.name;
-        
-        docContent.appendChild(name);
-        documentItem.appendChild(docContent);
-        documentItem.appendChild(removeBtn);
-        preview.appendChild(documentItem);
-    }
-    
-    // Limpar o input para permitir selecionar os mesmos arquivos novamente
-    this.value = '';
+
+        this.value = '';
+    });
 });
 
 // Função para abrir modal com imagem ampliada

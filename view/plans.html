@@ -56,7 +56,7 @@
 
             <div class="logo">
                 <a href="/index.php">
-                    <h1><a style="text-decoration: none;" href="./inicio.php">Planeje</a></h1>
+                    <h1><a style="text-decoration: none; color: #6A0DAD;" href="./inicio.php">Planeje</a></h1>
                 </a>
             </div>
         </div>
@@ -67,7 +67,9 @@
         <div class="container-user">
             <div class="tabs-container">
                 <div class="tab active" data-id="1">
-                    <span class="tab-title"><?php echo $nome ?></span>
+                    <span class="tab-title">
+                        <?php echo $nome ?>
+                    </span>
                     <button class="close-tab">&times;</button>
                 </div>
                 <button class="add-tab">+</button>
@@ -83,13 +85,13 @@
 
 
                 <div class="section" id="sectio1">
-                    <h4 style="margin-left:  2%;"><i class="bi bi-file-earmark"></i> Documentos</h4>
-                    <div class="document-upload" style="margin-left:  2%;"">
-                    <input type=" file" id="documentUpload" accept="image/*,.pdf" multiple>
-                        <label for="documentUpload" class="upload-btn">
+                    <h4 style="margin-left: 2%;"><i class="bi bi-file-earmark"></i> Documentos</h4>
+                    <div class="document-upload" style="margin-left: 2%;">
+                        <input type="file" id="documentUpload1" accept="image/*,.pdf" multiple>
+                        <label for="documentUpload1" class="upload-btn">
                             <i class="bi bi-cloud-upload"></i> Adicionar Documentos
                         </label>
-                        <div class="documents-preview" id="documentsPreview"></div>
+                        <div class="documents-preview" id="documentsPreview1"></div>
                     </div>
                 </div>
 
@@ -119,35 +121,13 @@
 
                 <!-- Seção de Saúde -->
                 <div class="section" id="sectio4">
-                    <h4 style="margin-left:  2%;"><i class="bi bi-heart-pulse"></i> Informações Médicas</h4>
-                    <div class="medical-info" style="margin-left:  2%;">
-                        <div class="form-group">
-                            <label>Tipo Sanguíneo:</label>
-                            <select id="bloodType">
-                                <option value="">Selecionar</option>
-                                <option value="A+">A+</option>
-                                <option value="A-">A-</option>
-                                <option value="B+">B+</option>
-                                <option value="B-">B-</option>
-                                <option value="AB+">AB+</option>
-                                <option value="AB-">AB-</option>
-                                <option value="O+">O+</option>
-                                <option value="O-">O-</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Alergias:</label>
-                            <textarea id="allergies" placeholder="Liste suas alergias..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Medicações:</label>
-                            <textarea id="medications" placeholder="Liste medicações em uso..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Contato de Emergência:</label>
-                            <input type="text" id="emergencyContact" placeholder="Nome e telefone">
-                        </div>
-                        <button class="btn-save" onclick="saveMedicalInfo()">Salvar Informações</button>
+                    <h4 style="margin-left: 2%;"><i class="bi bi-heart-pulse"></i> Informações Médicas</h4>
+                    <div class="document-upload" style="margin-left: 2%;">
+                        <input type="file" id="documentUpload4" accept="image/*,.pdf" multiple>
+                        <label for="documentUpload4" class="upload-btn">
+                            <i class="bi bi-cloud-upload"></i> Adicionar Documentos
+                        </label>
+                        <div class="documents-preview" id="documentsPreview4"></div>
                     </div>
                 </div>
             </div>

@@ -55,9 +55,9 @@
         <div class="container">
             <nav>
                 <ul class="ul-list">
-                    <a href="#">Meus Planos</a>
-                    <a href="ajuda.php">Ajuda</a>
-                    <a href="#">Dicas</a>
+                    <a href="#" class="plans">Meus Planos</a>
+                    <a href="ajuda.php" class="ajuda">Ajuda</a>
+                    <a href="#" class="dica">Dicas</a>
                 </ul>
 
                 <div class="animation start-home"></div>
