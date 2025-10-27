@@ -1,24 +1,27 @@
 <?php 
-    if (session_status() === PHP_SESSION_NONE) {
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
+}
+
+include 'conexao.php';
+
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+    $stmt = $con->prepare("SELECT IdCliente, CliNome, CliTelefone, CliCpf FROM tblCliente WHERE CliEmail = ?");
+    $stmt->execute([$email]);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$result) {
+        echo "Usuário não encontrado.";
+        exit;
     }
 
-    include 'conexao.php';
-
-    if (isset($_SESSION['email'])) {
-        $email = $_SESSION['email'];
-        $stmt = $con->prepare("SELECT CliNome, CliTelefone, CliCpf FROM tblCliente WHERE CliEmail = ?");
-        $stmt->execute([$email]);
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if (!$result) {
-            echo "Usuário não encontrado.";
-        }
-
-        $nome = $result["CliNome"];
-        $telefone = $result["CliTelefone"];
-        $cpf = $result["CliCpf"];
-
-    }
-
+    $id = $result["IdCliente"];
+    $nome = $result["CliNome"];
+    $telefone = $result["CliTelefone"];
+    $cpf = $result["CliCpf"];
+} else {
+    header("Location: ../../view/login.php");
+    exit;
+}
 ?>

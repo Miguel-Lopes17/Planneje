@@ -32,10 +32,32 @@
 
             if ($result) {
                 if ($result['CliEmail'] === $email) {
-                    echo "<script> mostrarAlert('Email já cadastrado!');setTimeout(() => {window.history.back();}, 1500);</script>";
+                    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+                    <script>
+                        Swal.fire({
+                            title: 'Email já Cadastrado!',
+                            icon: 'error',
+                            showConfirmButton: true,
+                            timer: 1800,
+                            timerProgressBar: true
+                        }).then(() => {
+                            window.history.back();
+                        });
+                    </script>";
                     exit;
                 } elseif ($result['CliCpf'] === $cpf) {
-                    echo "<script> mostrarAlert('CPF já cadastrado!');setTimeout(() => {window.history.back();}, 1500);</script>";
+                    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+                    <script>
+                        Swal.fire({
+                            title: 'CPF ja Cadastrado!',
+                            icon: 'error',
+                            showConfirmButton: true,
+                            timer: 1800,
+                            timerProgressBar: true
+                        }).then(() => {
+                            window.history.back();
+                        });
+                    </script>";
                     exit;
                 }
             }
@@ -57,6 +79,18 @@
                 $_SESSION['email'] = $email;
                 include 'usrdados.php';
                 header("Location: ../../view/inicio.php");
+                "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+                    <script>
+                        Swal.fire({
+                            title: 'Plano Criado com Sucesso!',
+                            icon: 'success',
+                            showConfirmButton: true,
+                            timer: 1800,
+                            timerProgressBar: true
+                        }).then(() => {
+                            window.location.href = '../../view/inicio.php';
+                        });
+                    </script>";
                 exit;
             } else {
                 echo "Erro ao efetivar cadastro.";
