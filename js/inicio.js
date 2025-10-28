@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // --- LOGOUT ---
 document.querySelector('.logout-btn').addEventListener('click', function() {
     if (confirm('Deseja realmente sair?')) {
-        window.location.href = '../backend/includes/logout.php';
+        window.location.href = '../index.php';
     }
 });
 
