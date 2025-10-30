@@ -352,7 +352,6 @@ try {
         </div>
     </main>
 
-    <!-- Modal para adicionar/editar plano -->
     <div class="modal" id="planModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -375,7 +374,34 @@ try {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" id="cancelButton">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="submit" class="btn btn-primary btnSalvar">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="planModalEdit">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Editar Plano</h3>
+                <button class="close" id="closeModal">&times;</button>
+            </div>
+            <form action="../backend/includes/plans.php" method="POST" id="planFormEdit">
+                <div class="form-group">
+                    <label for="destination">Destino</label>
+                    <input type="text" id="destination" name="destination" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Data</label>
+                    <input type="date" id="date" name="date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descrição (opcional)</label>
+                    <textarea id="description" name="description" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancelButton">Cancelar</button>
+                    <button type="submit" class="btn btn-primary btnSalvar">Salvar</button>
                 </div>
             </form>
         </div>
@@ -393,6 +419,84 @@ try {
             <i class="bi bi-trash"></i> Excluir
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#planForm').on('submit', function(e) {
+                e.preventDefault();
+
+                const formData = {
+                    funcao: 'adicionarPlano',
+                    destination: $('#destination').val(),
+                    date: $('#date').val(),
+                    description: $('#description').val()
+                };
+
+                $.ajax({
+                    url: '../backend/includes/plans.php',
+                    method: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        console.log(response);
+                        try {
+                            const res = JSON.parse(response);
+                            if (res.status === 'erro') {
+                                alert(res.mensagem);
+                            } else {
+                                $('#planModal').hide();
+                                location.reload();
+                            }
+                        } catch {
+                            $('#planModal').hide();
+                            location.reload();
+                        }
+                    },
+                    error: function() {
+                        alert('Erro ao adicionar plano.');
+                    }
+                });
+            });
+
+            $('#planFormEdit').on('submit', function(e) {
+                e.preventDefault();
+
+                const formData = {
+                    funcao: 'editarPlano',
+                    destination: $('#destination').val(),
+                    date: $('#date').val(),
+                    description: $('#description').val()
+                };
+
+                $.ajax({
+                    url: '../backend/includes/plans.php',
+                    method: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        console.log(response);
+                        try {
+                            const res = JSON.parse(response);
+                            if (res.status === 'erro') {
+                                alert(res.mensagem);
+                            } else {
+                                $('#planModal').hide();
+                                location.reload();
+                            }
+                        } catch {
+                            $('#planModal').hide();
+                            location.reload();
+                        }
+                    },
+                    error: function() {
+                        alert('Erro ao editar plano.');
+                    }
+                });
+            });
+
+
+        });
+    </script>
 
     <script src="../js/inicio.js"></script>
 </body>

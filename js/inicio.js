@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Elementos do DOM
     const addPlanButton = document.getElementById('addPlanButton');
     const planModal = document.getElementById('planModal');
+    const planModalEdit = document.getElementById('planModalEdit');
     const closeModal = document.getElementById('closeModal');
     const cancelButton = document.getElementById('cancelButton');
     const planForm = document.getElementById('planForm');
@@ -116,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- Abrir modal de edição ---
     function openEditModal(planId, destination, date, description) {
-        modalTitle.textContent = 'Editar Plano';
         planIdInput.value = planId;
         destinationInput.value = destination;
         dateInput.value = date;

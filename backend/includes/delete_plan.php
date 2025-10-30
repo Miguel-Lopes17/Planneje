@@ -14,12 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = $_SESSION['email'];
         
         // Verificar se o plano pertence ao usuário
-        $stmt = $con->prepare("
-            SELECT p.IdPlano 
-            FROM tblPlano p 
-            JOIN tblCliente c ON p.plaIdCliente = c.IdCliente 
-            WHERE p.IdPlano = ? AND c.CliEmail = ?
-        ");
+        $stmt = $con->prepare(`SELECT p.IdPlano FROM tblPlano p JOIN tblCliente c ON p.plaIdCliente = c.IdCliente WHERE p.IdPlano = ? AND c.CliEmail = ?`);
         $stmt->execute([$planId, $email]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         
