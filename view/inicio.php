@@ -1,15 +1,6 @@
 <?php
-include '../backend/includes/usrdados.php';
-
-// Buscar planos do usuário
-$planos = [];
-try {
-    $stmt = $con->prepare("SELECT * FROM tblPlano WHERE plaIdCliente = ? ORDER BY plaData DESC");
-    $stmt->execute([$id]); // $id deve vir do usrdados.php
-    $planos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    echo "Erro ao buscar planos: " . $e->getMessage();
-}
+    include '../backend/includes/usrdados.php';
+    include '../backend/includes/usrplans.php';
 ?>
 
 <!DOCTYPE html>
@@ -197,7 +188,7 @@ try {
             background: #6c757d;
             color: white;
         }
- 
+
         .btn-secondary:hover {
             background: #5a6268;
         }
@@ -240,25 +231,6 @@ try {
             display: none;
         }
 
-        @media screen and (max-width:1000px) {
-            .navbar {
-                display: none;
-            }
-            .plans1, .ajuda1 {
-                display: flex;
-            }
-
-            .ul-list {
-                display: none;
-            }
-
-            .container-user {
-                display: none;
-            }
-
-            .logo {
-                margin-left: 35%;
-            }
 
 
         .btn-secondary:hover {
@@ -308,7 +280,6 @@ try {
             width: 16px;
             text-align: center;
         }
-    }
     </style>
 </head>
 
