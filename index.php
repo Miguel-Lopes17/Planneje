@@ -20,7 +20,7 @@
     --primary-color: #6A0DAD;
     --secondary-color: #9B51E0;
     --light-purple: #E8D5FF;
-    --white: #FFFFFF;
+    --white: #FFFFFF; 
     --light-gray: #F5F5F5;
     --dark-text: #333333;
     --accent: #FFD700;

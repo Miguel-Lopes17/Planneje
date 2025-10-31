@@ -4,7 +4,7 @@
     }
 
     include 'conexao.php';
-    include 'alert.php';
+
 
     $destino = $_POST['destination'] ?? '';
     $data = $_POST['date'] ?? '';
@@ -21,6 +21,7 @@
         }
         return null;
     }
+
 
     function adicionarPlano($con) {
         global $destino, $data, $descricao; 
@@ -73,7 +74,31 @@
                     </script>";
                 exit;
             }
-    }   
+    }
+
+    function excluirPlano($con) {
+        $idPlano = $_POST['idPlano'] ?? null;
+
+        if (!$idPlano) {
+            echo json_encode(['status' => 'erro', 'mensagem' => 'ID do plano não informado']);
+            exit;
+        }
+
+        $idUsuario = idUsuario($con);
+        if ($idUsuario == null) {
+            echo json_encode(['status' => 'erro', 'mensagem' => 'Usuário não autenticado']);
+            exit;
+        }
+
+        $stmt = $con->prepare("DELETE FROM tblPlano WHERE idPlano = ? AND plaIdCliente = ?");
+        if ($stmt->execute([$idPlano, $idUsuario])) {
+            echo json_encode(['status' => 'sucesso', 'mensagem' => 'Plano excluído com sucesso!']);
+        } else {
+            echo json_encode(['status' => 'erro', 'mensagem' => 'Erro ao excluir o plano.']);
+        }
+        exit;
+}
+
 
     
 

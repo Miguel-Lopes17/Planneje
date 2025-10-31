@@ -3,10 +3,6 @@
         session_start();
     }
 
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL);
-
-    flush();
 
     include 'conexao.php';
 
@@ -28,32 +24,23 @@
             if ($result && password_verify($senha, $result['CliSenha'])) {
                 $_SESSION['email'] = $email;
                 include 'usrdados.php';
-                echo " <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-                <script> Swal.fire({
-                title: 'Login bem-sucedido!',
-                icon: 'success',
-                confirmButtonText: 'Ok',
-                timer: 1500,
-                showConfirmButton: false
-            }).then(() => {
-                window.location.href='../../view/inicio.php';
-            });</script>";
+                echo
+                "<script>
+                    window.location.href='../../view/inicio.php';
+                </script>";
                 exit;
             } else {
-                echo " <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-                <script> Swal.fire({
-                title: 'Email ou Senha incorreto!',
-                icon: 'error',
-                confirmButtonText: 'Ok',
-                timer: 1500,
-                showConfirmButton: false
-            }).then(() => { setTimeout(() => {window.history.back();}, 1300);
-            }); </script>";
+                echo "
+                <script>
+                    window.history.back();
+                </script>";
                 exit;
             }
 
         } else {
-            //echo "<script> mostrarAlert('Preencha todos os campos.');setTimeout(() => {window.history.back();}, 1500);</script>";
+            echo "<script>
+                window.history.back();
+            </script>";
             exit;
         }
 
