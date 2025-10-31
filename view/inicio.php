@@ -1,6 +1,6 @@
 <?php
-    include '../backend/includes/usrdados.php';
-    include '../backend/includes/usrplans.php';
+include '../backend/includes/usrdados.php';
+include '../backend/includes/usrplans.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,83 +19,13 @@
     <title>Planeje - Meus Planos</title>
 
     <style>
-        /* Estilos para os planos */
-        .planos {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+        /* ESTILOS ESPECÍFICOS DA PÁGINA */
+        .plans1,
+        .ajuda1 {
+            display: none;
         }
 
-        .plan-card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e0e0e0;
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .plan-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .plan-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-
-        .plan-destination {
-            margin: 0;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #333;
-            flex: 1;
-        }
-
-        .plan-options {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 4px;
-            transition: background-color 0.2s;
-            color: #666;
-        }
-
-        .plan-options:hover {
-            background-color: #f5f5f5;
-            color: #333;
-        }
-
-        .plan-date {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-
-        .plan-description {
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.4;
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid #f0f0f0;
-        }
-
-        .title-container {
-            margin-top: 15px;
-        }
-
-        /* Modal */
+        /* Modal específico */
         .modal {
             display: none;
             position: fixed;
@@ -107,6 +37,10 @@
             background-color: rgba(0, 0, 0, 0.5);
             align-items: center;
             justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
         }
 
         .modal-content {
@@ -121,13 +55,15 @@
             padding: 20px;
             border-bottom: 1px solid #e0e0e0;
             display: flex;
-            justify-content: between;
+            justify-content: space-between;
             align-items: center;
         }
 
         .modal-title {
             margin: 0;
-            flex: 1;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #6A0DAD;
         }
 
         .close {
@@ -193,6 +129,15 @@
             background: #5a6268;
         }
 
+        .btn-primary {
+            background-color: #6A0DAD;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #5a0b95;
+        }
+
         /* Menu de contexto */
         .dropdown-menu {
             display: none;
@@ -202,60 +147,6 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
             z-index: 1001;
             min-width: 150px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .dropdown-menu.show {
-            display: block;
-        }
-
-        .dropdown-item {
-            padding: 12px 15px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: background-color 0.2s;
-        }
-
-        .dropdown-item:hover {
-            background: #f8f9fa;
-        }
-
-        .dropdown-item i {
-            width: 16px;
-            text-align: center;
-        }
-
-        .plans1 , .ajuda1 {
-            display: none;
-        }
-
-
-
-        .btn-secondary:hover {
-            background: #5a6268;
-        }
-
-        .btn-primary {
-            background: #007bff;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #0056b3;
-        }
-
-        /* Menu de contexto */
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            z-index: 1001;
-            min-width: 100px;
-            max-width: 200px;
             border: 1px solid #e0e0e0;
         }
 
@@ -297,12 +188,9 @@
             <li><a href="#">Configuração</a></li>
             <li><a href="ajuda.php">Ajuda</a></li>
             <li><a href="#">Sobre</a></li>
-            <!-- <li><a href="#">Planos arquivados</a></li> -->
             <li><a href="#">Compartilhar</a></li>
             <li><a href="#" class="plans1">Meus Planos</a></li>
-            <li"><a href="ajuda.php" class="ajuda1">Ajuda</a></li>
-            <!-- <li><a href="#">Autenticador</a></li> -->
-            <!-- <li><a href="#">Documentos</a></li> -->
+            <li><a href="ajuda.php" class="ajuda1">Ajuda</a></li>
         </ul>
         <div class="sidebar-footer">
             <div class="user-info">
@@ -352,6 +240,7 @@
         <h4>Meus Planos <i class="bi bi-card-list"></i></h4>
 
         <div class="planos">
+            <!-- Botão de novo plano -->
             <div class="new-plan" id="addPlanButton">
                 <button class="addPlan" aria-label="Adicionar novo plano">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-plus-circle plus" viewBox="0 0 16 16">
@@ -366,11 +255,7 @@
 
             <!-- Planos existentes -->
             <?php foreach ($planos as $plano): ?>
-
-                <div class="plan-card"> <!--data-plan-id="<?php echo $plano['IdPlano']; ?>" -->
-
-                <div class="plan-card" data-plan-id="<?php echo $plano['idPlano']; ?>">   
-
+                <div class="plan-card" data-plan-id="<?php echo $plano['idPlano']; ?>">
                     <div class="plan-header">
                         <h3 class="plan-destination"><?php echo htmlspecialchars($plano['plaDestino']); ?></h3>
                         <button class="plan-options">
@@ -391,6 +276,7 @@
         </div>
     </main>
 
+    <!-- Modal para Adicionar/Editar Plano -->
     <div class="modal" id="planModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -419,50 +305,21 @@
         </div>
     </div>
 
-    <div class="modal" id="planModalEdit">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title" id="modalTitle">Editar Plano</h3>
-                <button class="close" id="closeModal">&times;</button>
-            </div>
-            <form action="../backend/includes/plans.php" method="POST" id="planFormEdit">
-                <div class="form-group">
-                    <label for="destination">Destino</label>
-                    <input type="text" id="destination" name="destination" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="date">Data</label>
-                    <input type="date" id="date" name="date" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="description">Descrição (opcional)</label>
-                    <textarea id="description" name="description" class="form-control" rows="3"></textarea>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="cancelButton">Cancelar</button>
-                    <button type="submit" class="btn btn-primary btnSalvar">Salvar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <!-- Menu de contexto para os três pontos -->
-    <div class="dropdown-menu btnVisualizar" id="contextMenu">
+    <div class="dropdown-menu" id="contextMenu">
         <div class="dropdown-item" data-action="view">
             <i class="bi bi-eye"></i> Visualizar
         </div>
-        <div class="dropdown-item btnEditar" data-action="edit">
+        <div class="dropdown-item" data-action="edit">
             <i class="bi bi-pencil"></i> Editar
         </div>
-        <div class="dropdown-item btnExcluir" >
+        <div class="dropdown-item" data-action="delete">
             <i class="bi bi-trash"></i> Excluir
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <script src="../js/ajax.js"></script>
-
     <script src="../js/inicio.js"></script>
 </body>
 
