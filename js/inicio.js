@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         switch (action) {
             case 'view':
-                viewPlan(planId);
+                window.location.href = `plans.php?id=${planId}`;
                 break;
             case 'edit':
                 openEditModal(planId, destination, date, description);
@@ -109,10 +109,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // --- Visualizar plano ---
-    function viewPlan(planId) {
-        window.location.href = `view_plan.php?id=${planId}`;
-    }
 
     // --- Abrir modal de edição ---
     function openEditModal(planId, destination, date, description) {

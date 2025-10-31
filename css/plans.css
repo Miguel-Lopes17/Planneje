@@ -178,7 +178,6 @@ a {
 .logo {
     display: flex;
     align-items: center;
-    margin-right: 40%;
 }
 
 .logo h1 {
@@ -318,6 +317,7 @@ nav {
             background: transparent;
             cursor: pointer;
             padding: 0;
+            margin-top: 10%;
         }
 
         .plus {
@@ -331,7 +331,7 @@ nav {
 
         .title-container {
             background-color: #6A0DAD;
-            width: 300px;
+            width: 100%;
             height: 40px;
             display: flex;
             justify-content: center;
@@ -508,15 +508,6 @@ nav {
 
         .btn-primary:hover {
             background-color: #5a0b95;
-        }
-
-        .btn-secondary {
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        .btn-secondary:hover {
-            background-color: #e0e0e0;
         }
 
         .btn-danger {

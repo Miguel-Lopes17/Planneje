@@ -13,6 +13,26 @@
     <link rel="stylesheet" href="../css/file.css">
     <title>Planneje - Meus Planos</title>
 
+    <style>
+
+        @media screen and (max-width:1000px) {
+            .navbar {
+                display: none;
+            }
+            .plans1, .ajuda1 {
+                display: flex;
+            }
+
+            .ul-lis {
+                display: none;
+            }
+
+            .logo {
+                margin-left: 35%;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
@@ -30,10 +50,12 @@
             <li><a href="#">Configuração</a></li>
             <li><a href="ajuda.php">Ajuda</a></li>
             <li><a href="#">Sobre</a></li>
-            <li><a href="#">Planos arquivados</a></li>
+            <!-- <li><a href="#">Planos arquivados</a></li> -->
             <li><a href="#">Compartilhar</a></li>
-            <li><a href="#">Autenticador</a></li>
-            <li><a href="#">Documentos</a></li>
+            <li><a href="inicio.php" class="plans1">Meus Planos</a></li>
+            <li"><a href="ajuda.php" class="ajuda1">Ajuda</a></li>
+            <!-- <li><a href="#">Autenticador</a></li> -->
+            <!-- <li><a href="#">Documentos</a></li> -->
         </ul>
 
         <div class="sidebar-footer">
@@ -95,7 +117,7 @@
                     </div>
                 </div>
 
-                <!-- Seção de Informações da Viagem -->
+                
                 <div class="section" id="sectio3">
                     <h4 style="margin-left:  2%;"><i class="bi bi-geo-alt"></i> Informações da Viagem</h4>
                     <div class="travel-info" style="margin-left:  2%;">
@@ -119,7 +141,7 @@
                     </div>
                 </div>
 
-                <!-- Seção de Saúde -->
+                
                 <div class="section" id="sectio4">
                     <h4 style="margin-left: 2%;"><i class="bi bi-heart-pulse"></i> Informações Médicas</h4>
                     <div class="document-upload" style="margin-left: 2%;">

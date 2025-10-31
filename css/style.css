@@ -378,10 +378,6 @@ h4 {
 }
 
 @media (max-width: 480px) {
-    .user-actions {
-        width: 100%;
-        justify-content: center;
-    }
 
     .hero-content {
         text-align: center;

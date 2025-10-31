@@ -112,11 +112,37 @@ main {
 .support a:hover {
     text-decoration: underline;
 }
+
+.plans1 , .ajuda1 {
+            display: none;
+        }
+
+        @media screen and (max-width:1000px) {
+            .navbar {
+                display: none;
+            }
+            .plans1, .ajuda1 {
+                display: flex;
+            }
+
+            .ul-lis {
+                display: none;
+            }
+
+            .container-user {
+                display: none;
+            }
+
+            .logo {
+                margin-left: 35%;
+            }
+        }
+
 </style>
 </head>
 
 <body>
- <!-- BOTÃO HAMBURGUER PARA ABRIR -->
+<!-- BOTÃO HAMBURGUER PARA ABRIR -->
     <button class="menu-toggle"><i class="fas fa-bars"></i></button>
 
     <!-- MENU LATERAL (já fechado por padrão com "collapsed") -->
@@ -130,10 +156,12 @@ main {
             <li><a href="#">Configuração</a></li>
             <li><a href="ajuda.php">Ajuda</a></li>
             <li><a href="#">Sobre</a></li>
-            <li><a href="#">Planos arquivados</a></li>
+            <!-- <li><a href="#">Planos arquivados</a></li> -->
             <li><a href="#">Compartilhar</a></li>
-            <li><a href="#">Autenticador</a></li>
-            <li><a href="#">Documentos</a></li>
+            <li><a href="inicio.php" class="plans1">Meus Planos</a></li>
+            <li"><a href="ajuda.php" class="ajuda1">Ajuda</a></li>
+            <!-- <li><a href="#">Autenticador</a></li> -->
+            <!-- <li><a href="#">Documentos</a></li> -->
         </ul>
 
         <div class="sidebar-footer">
@@ -152,11 +180,10 @@ main {
 
     <header class="main-header">
         <div class="container">
-            <nav>
+            <nav class="navbar">
                 <ul class="ul-list">
                     <a href="inicio.php" class="plans">Meus Planos</a>
                     <a href="ajuda.php" class="ajuda">Ajuda</a>
-                    <a href="#" class="dica">Dicas</a>
                 </ul>
 
                 <div class="animation start-home"></div>

@@ -29,221 +29,237 @@ try {
 
     <style>
         /* Estilos para os planos */
-.planos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
+        .planos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
 
-.plan-card {
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e0e0e0;
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
-    position: relative;
-}
+        .plan-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
 
-.plan-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
+        .plan-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
 
-.plan-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 15px;
-}
+        .plan-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
 
-.plan-destination {
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #333;
-    flex: 1;
-}
+        .plan-destination {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            flex: 1;
+        }
 
-.plan-options {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-    color: #666;
-}
+        .plan-options {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            color: #666;
+        }
 
-.plan-options:hover {
-    background-color: #f5f5f5;
-    color: #333;
-}
+        .plan-options:hover {
+            background-color: #f5f5f5;
+            color: #333;
+        }
 
-.plan-date {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
+        .plan-date {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
 
-.plan-description {
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.4;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid #f0f0f0;
-}
+        .plan-description {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #f0f0f0;
+        }
 
-.title-container {
-    margin-top: 15px;
-}
+        .title-container {
+            margin-top: 15px;
+        }
 
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    align-items: center;
-    justify-content: center;
-}
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
 
-.modal-content {
-    background: white;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
 
-.modal-header {
-    padding: 20px;
-    border-bottom: 1px solid #e0e0e0;
-    display: flex;
-    justify-content: between;
-    align-items: center;
-}
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
 
-.modal-title {
-    margin: 0;
-    flex: 1;
-}
+        .modal-title {
+            margin: 0;
+            flex: 1;
+        }
 
-.close {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #666;
-}
+        .close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
 
-.close:hover {
-    color: #333;
-}
+        .close:hover {
+            color: #333;
+        }
 
-.form-group {
-    padding: 15px 20px;
-}
+        .form-group {
+            padding: 15px 20px;
+        }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: #333;
-}
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
 
-.form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
-    box-sizing: border-box;
-}
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
 
-.form-control:focus {
-    outline: none;
-    border-color: #007bff;
-}
+        .form-control:focus {
+            outline: none;
+            border-color: #007bff;
+        }
 
-.modal-footer {
-    padding: 20px;
-    border-top: 1px solid #e0e0e0;
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-}
+        .modal-footer {
+            padding: 20px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
 
-.btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.2s;
-}
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+        }
 
-.btn-secondary {
-    background: #6c757d;
-    color: white;
-}
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+ 
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
 
-.btn-secondary:hover {
-    background: #5a6268;
-}
+        /* Menu de contexto */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            z-index: 1001;
+            min-width: 150px;
+            border: 1px solid #e0e0e0;
+        }
 
-.btn-primary {
-    background: #007bff;
-    color: white;
-}
+        .dropdown-menu.show {
+            display: block;
+        }
 
-.btn-primary:hover {
-    background: #0056b3;
-}
+        .dropdown-item {
+            padding: 12px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.2s;
+        }
 
-/* Menu de contexto */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    z-index: 1001;
-    min-width: 150px;
-    border: 1px solid #e0e0e0;
-}
+        .dropdown-item:hover {
+            background: #f8f9fa;
+        }
 
-.dropdown-menu.show {
-    display: block;
-}
+        .dropdown-item i {
+            width: 16px;
+            text-align: center;
+        }
 
-.dropdown-item {
-    padding: 12px 15px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: background-color 0.2s;
-}
+        .plans1 , .ajuda1 {
+            display: none;
+        }
 
-.dropdown-item:hover {
-    background: #f8f9fa;
-}
+        @media screen and (max-width:1000px) {
+            .navbar {
+                display: none;
+            }
+            .plans1, .ajuda1 {
+                display: flex;
+            }
 
-.dropdown-item i {
-    width: 16px;
-    text-align: center;
-}
+            .ul-list {
+                display: none;
+            }
+
+            .container-user {
+                display: none;
+            }
+
+            .logo {
+                margin-left: 35%;
+            }
+        }
     </style>
 </head>
 
@@ -257,17 +273,17 @@ try {
             <h3>Menu</h3>
             <button class="close-btn"><i class="fas fa-times"></i></button>
         </div>
-
         <ul class="sidebar-links">
             <li><a href="#">Configuração</a></li>
             <li><a href="ajuda.php">Ajuda</a></li>
             <li><a href="#">Sobre</a></li>
-            <li><a href="#">Planos arquivados</a></li>
+            <!-- <li><a href="#">Planos arquivados</a></li> -->
             <li><a href="#">Compartilhar</a></li>
-            <li><a href="#">Autenticador</a></li>
-            <li><a href="#">Documentos</a></li>
+            <li><a href="#" class="plans1">Meus Planos</a></li>
+            <li"><a href="ajuda.php" class="ajuda1">Ajuda</a></li>
+            <!-- <li><a href="#">Autenticador</a></li> -->
+            <!-- <li><a href="#">Documentos</a></li> -->
         </ul>
-
         <div class="sidebar-footer">
             <div class="user-info">
                 <div class="avatar"></div>
@@ -282,11 +298,10 @@ try {
 
     <header class="main-header">
         <div class="container">
-            <nav>
+            <nav class="navbar">
                 <ul class="ul-list">
                     <a href="#" class="plans">Meus Planos</a>
                     <a href="ajuda.php" class="ajuda">Ajuda</a>
-                    <a href="#" class="dica">Dicas</a>
                 </ul>
                 <div class="animation start-home"></div>
             </nav>
@@ -331,7 +346,7 @@ try {
 
             <!-- Planos existentes -->
             <?php foreach ($planos as $plano): ?>
-                <div class="plan-card" >   <!--data-plan-id="<?php echo $plano['IdPlano']; ?>" -->
+                <div class="plan-card"> <!--data-plan-id="<?php echo $plano['IdPlano']; ?>" -->
                     <div class="plan-header">
                         <h3 class="plan-destination"><?php echo htmlspecialchars($plano['plaDestino']); ?></h3>
                         <button class="plan-options">
