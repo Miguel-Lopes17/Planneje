@@ -17,7 +17,9 @@ menuToggle.addEventListener("click", () => {
 document.addEventListener('DOMContentLoaded', function () {
     // Elementos do DOM
     const addPlanButton = document.getElementById('addPlanButton');
+    const btnEditar = document.querySelector('.btnEditar');
     const planModal = document.getElementById('planModal');
+    const planModalEdit = document.getElementById('planModalEdit');
     const closeModal = document.getElementById('closeModal');
     const cancelButton = document.getElementById('cancelButton');
     const planForm = document.getElementById('planForm');
@@ -33,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- Abrir modal de novo plano ---
     addPlanButton.addEventListener('click', () => {
-        modalTitle.textContent = 'Adicionar Novo Plano';
         planIdInput.value = '';
         destinationInput.value = '';
         dateInput.value = '';
@@ -112,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- Abrir modal de edição ---
     function openEditModal(planId, destination, date, description) {
-        modalTitle.textContent = 'Editar Plano';
         planIdInput.value = planId;
         destinationInput.value = destination;
         dateInput.value = date;
@@ -120,31 +120,6 @@ document.addEventListener('DOMContentLoaded', function () {
         planModal.style.display = 'flex';
     }
 
-    // --- Excluir plano ---
-    function deletePlan(planId, destination, planCard) {
-        if (confirm(`Tem certeza que deseja excluir o plano "${destination}"?`)) {
-            // Aqui você pode adicionar uma requisição AJAX para excluir do banco
-            fetch('../backend/includes/delete_plan.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: `planId=${planId}`
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    planCard.remove();
-                } else {
-                    alert('Erro ao excluir plano: ' + data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-                alert('Erro ao excluir plano');
-            });
-        }
-    }
 
     // --- Enviar formulário ---
     planForm.addEventListener('submit', function(e) {

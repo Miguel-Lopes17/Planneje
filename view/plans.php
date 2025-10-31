@@ -228,7 +228,6 @@
         </div>
     </main>
 
-
     <script src="../js/inicio.js"></script>
     <script src="../js/plans.js"></script>
 </body>

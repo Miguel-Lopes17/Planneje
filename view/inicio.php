@@ -259,7 +259,56 @@ try {
             .logo {
                 margin-left: 35%;
             }
+
+
+        .btn-secondary:hover {
+            background: #5a6268;
         }
+
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+        /* Menu de contexto */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            z-index: 1001;
+            min-width: 100px;
+            max-width: 200px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 12px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-item:hover {
+            background: #f8f9fa;
+        }
+
+        .dropdown-item i {
+            width: 16px;
+            text-align: center;
+        }
+    }
     </style>
 </head>
 
@@ -346,7 +395,11 @@ try {
 
             <!-- Planos existentes -->
             <?php foreach ($planos as $plano): ?>
+
                 <div class="plan-card"> <!--data-plan-id="<?php echo $plano['IdPlano']; ?>" -->
+
+                <div class="plan-card" data-plan-id="<?php echo $plano['idPlano']; ?>">   
+
                     <div class="plan-header">
                         <h3 class="plan-destination"><?php echo htmlspecialchars($plano['plaDestino']); ?></h3>
                         <button class="plan-options">
@@ -367,7 +420,6 @@ try {
         </div>
     </main>
 
-    <!-- Modal para adicionar/editar plano -->
     <div class="modal" id="planModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -390,24 +442,55 @@ try {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" id="cancelButton">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="submit" class="btn btn-primary btnSalvar">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="planModalEdit">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Editar Plano</h3>
+                <button class="close" id="closeModal">&times;</button>
+            </div>
+            <form action="../backend/includes/plans.php" method="POST" id="planFormEdit">
+                <div class="form-group">
+                    <label for="destination">Destino</label>
+                    <input type="text" id="destination" name="destination" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Data</label>
+                    <input type="date" id="date" name="date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descrição (opcional)</label>
+                    <textarea id="description" name="description" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancelButton">Cancelar</button>
+                    <button type="submit" class="btn btn-primary btnSalvar">Salvar</button>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- Menu de contexto para os três pontos -->
-    <div class="dropdown-menu" id="contextMenu">
+    <div class="dropdown-menu btnVisualizar" id="contextMenu">
         <div class="dropdown-item" data-action="view">
             <i class="bi bi-eye"></i> Visualizar
         </div>
-        <div class="dropdown-item" data-action="edit">
+        <div class="dropdown-item btnEditar" data-action="edit">
             <i class="bi bi-pencil"></i> Editar
         </div>
-        <div class="dropdown-item" data-action="delete">
+        <div class="dropdown-item btnExcluir" >
             <i class="bi bi-trash"></i> Excluir
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="../js/ajax.js"></script>
 
     <script src="../js/inicio.js"></script>
 </body>
