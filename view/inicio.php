@@ -306,14 +306,14 @@ include '../backend/includes/usrplans.php';
     </div>
 
     <!-- Menu de contexto para os três pontos -->
-    <div class="dropdown-menu" id="contextMenu">
+    <div class="dropdown-menu btnVisualizar" id="contextMenu">
         <div class="dropdown-item" data-action="view">
             <i class="bi bi-eye"></i> Visualizar
         </div>
-        <div class="dropdown-item" data-action="edit">
+        <div class="dropdown-item btnEditar" data-action="edit">
             <i class="bi bi-pencil"></i> Editar
         </div>
-        <div class="dropdown-item" data-action="delete">
+        <div class="dropdown-item btnExcluir" >
             <i class="bi bi-trash"></i> Excluir
         </div>
     </div>
